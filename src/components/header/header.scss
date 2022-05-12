@@ -1,0 +1,34 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #020203;
+    height: 15vh;
+    padding: 0 80px 0 20px;
+}
+
+.logo {
+
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+}
+
+.logo-image1,
+.logo-image2 {
+    margin-right: 10px;
+}
+
+.navigation {
+    flex: 3;
+}
+
+.nav {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
