@@ -16,7 +16,6 @@ const Header = () => {
           <li className="nav-item">Profil</li>
           <li className="nav-item">Réglage</li>
           <li className="nav-item">Communauté</li>
-          <li>Communauté</li>
         </ul>
       </nav>
     </header>

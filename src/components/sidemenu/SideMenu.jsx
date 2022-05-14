@@ -4,10 +4,12 @@ import yoga from "../../assets/yoga.svg";
 import swimming from "../../assets/swim.svg";
 import bicycle from "../../assets/bicycle.svg";
 import alter from "../../assets/alters.svg";
+
 /**
  *
  * @returns {JSX.Element}
  */
+
 const SideMenu = () => {
   return (
     <div className="sideMenu">

@@ -2,20 +2,21 @@
 
     width: 117px;
     background-color: #020203;
-    min-height: calc(100vh - 15vh);
-    // display: flex;
-    // flex-direction: column;
+
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     color: #fff;
     align-items: center;
     position: relative;
+    z-index: 2;
+    margin-top: 10vh;
+
 }
 
-.sideMenu-header {
-    position: absolute;
-    transform: translate(40%, 10vh);
-}
+
 
 
 .sideMenu-button {
@@ -23,7 +24,7 @@
     height: 64px;
     border-radius: 6px;
     background-color: #fff;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,48 +33,14 @@
 .sideMenu-copyright {
     position: absolute;
     bottom: 20px;
-    left: -40px;
-
+    left: -20px;
     flex: 0;
-    width: 190px;
-    -moz-transform: rotate(270deg) translate(50px, 0px);
-    -webkit-transform: rotate(270deg) translate(50px, 0px);
+    width: 140px;
+    -moz-transform: rotate(270deg) translate(80px, 0px);
+    -webkit-transform: rotate(270deg) translate(80px, 0px);
     -o-transform: rotate(270deg) translate(80px, 0px);
     -ms-transform: rotate(270deg) translate(80px, 0px);
     transform: rotate(270deg) translate(80px, 0px);
     font-size: 0.75rem;
 
 }
-
-
-// .sideMenu {
-//     width: 117px;
-//     height: calc(100vh - 91px);
-//     color: white;
-//     background-color: #020203;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-between;
-//     align-items: center;
-//     position: relative;
-// }
-
-
-
-// .sideMenu-button {
-//     width: 64px;
-//     height: 64px;
-//     background-color: #fff;
-//     border-radius: 6px;
-//     margin-bottom: 20px;
-// }
-
-// .sideMenu-copyright {
-//     position: absolute;
-//     width: 138px;
-//     bottom: 35px;
-//     align-self: flex-end;
-//     font-size: 0.75rem;
-//     transform: rotate(-90deg);
-
-// }

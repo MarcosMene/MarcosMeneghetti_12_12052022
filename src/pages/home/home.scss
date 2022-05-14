@@ -1,0 +1,131 @@
+.home {
+    width: 95%;
+    padding: 10px 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    min-height: calc(100vh - 10vh);
+    padding-top: 40px;
+    margin-top: 10vh;
+
+    //GRETTING
+
+    .greetting {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .greeting-title {
+        font-size: 3rem;
+
+        span {
+            margin-left: 10px;
+            color: #FF0101
+        }
+    }
+
+    p {
+        margin-top: 15px;
+        font-size: 1.125rem;
+    }
+}
+
+//DASHBOARD
+
+.db-dashboard {
+
+    width: 100%;
+    min-height: 600px;
+    border-radius: 5px;
+    margin-top: 50px;
+
+    display: flex;
+    justify-content: space-between;
+
+    .db-graphics {
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between
+    }
+
+    .db-activities {
+
+        background-color: #FBFBFB;
+        height: 48%;
+        padding: 10px;
+
+    }
+
+    .db-small-charts {
+        width: 100%;
+        height: 48%;
+        display: flex;
+        justify-content: space-between;
+
+        .db-chart {
+            width: 30%;
+            height: 100%;
+            padding: 10px;
+            background-color: #FBFBFB;
+        }
+    }
+}
+
+
+.db-key-data {
+    flex: 1;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+
+    .db-key-info {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 90%;
+        height: 124px;
+        padding: 15px;
+        background-color: #FBFBFB;
+        border-radius: 5px;
+
+    }
+
+    .db-key-img {
+
+        border-radius: 5px;
+        padding: 20px;
+        background-color: lightblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+
+
+    }
+
+    .db-key-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .db-key-title {
+        font-size: 1.25rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .db-key-type {
+        font-size: 0.875rem;
+        margin: 0;
+        padding: 0;
+        margin-top: 5px;
+    }
+}
