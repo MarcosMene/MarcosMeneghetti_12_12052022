@@ -1,7 +1,10 @@
 import React from "react";
 import "./home.scss";
 import proteines from "../../assets/proteines.svg";
-
+import Activity from "../../components/Activity/Activity";
+import Sessions from "../../components/sessions/Sessions";
+import Performance from "../../components/performance/Performance";
+import Score from "../../components/score/Score";
 const Home = () => {
   return (
     <section className="home">
@@ -13,11 +16,18 @@ const Home = () => {
       </div>
       <div className="db-dashboard">
         <div className="db-graphics">
-          <div className="db-activities">dfgs</div>
+          <Activity className="db-activities" />
+
           <div className="db-small-charts">
-            <div className="db-chart">section</div>
-            <div className="db-chart">intensity</div>
-            <div className="db-chart">score</div>
+            <div className="db-chart">
+              <Sessions />
+            </div>
+            <div className="db-chart">
+              <Performance />
+            </div>
+            <div className="db-chart">
+              <Score />
+            </div>
           </div>
         </div>
         <div className="db-key-data">

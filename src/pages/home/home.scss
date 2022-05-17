@@ -7,7 +7,7 @@
     flex-direction: column;
     min-height: calc(100vh - 10vh);
     padding-top: 40px;
-    margin-top: 10vh;
+    // margin-top: 10vh;
 
     //GRETTING
 
@@ -40,36 +40,40 @@
     min-height: 600px;
     border-radius: 5px;
     margin-top: 50px;
-
+    max-width: 1880px;
     display: flex;
     justify-content: space-between;
 
+
     .db-graphics {
-        flex: 5;
+        flex: 4;
         display: flex;
         flex-direction: column;
-        justify-content: space-between
+        justify-content: flex-start;
+
     }
 
     .db-activities {
 
         background-color: #FBFBFB;
-        height: 48%;
+        // height: 48%;
         padding: 10px;
+        margin-bottom: 30px;
+
 
     }
 
     .db-small-charts {
         width: 100%;
-        height: 48%;
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        background-color: #fff;
 
         .db-chart {
-            width: 30%;
-            height: 100%;
+
+            height: 263px;
             padding: 10px;
-            background-color: #FBFBFB;
+
         }
     }
 }
