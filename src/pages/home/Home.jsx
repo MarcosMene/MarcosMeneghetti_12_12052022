@@ -1,10 +1,14 @@
 import React from "react";
 import "./home.scss";
 import proteines from "../../assets/proteines.svg";
+import glucides from "../../assets/apple.svg";
+import lipides from "../../assets/cheeseburger.svg";
+import calories from "../../assets/calories.svg";
 import Activity from "../../components/Activity/Activity";
 import Sessions from "../../components/sessions/Sessions";
 import Performance from "../../components/performance/Performance";
 import Score from "../../components/score/Score";
+import KeyData from "../../components/key-data/KeyData";
 const Home = () => {
   return (
     <section className="home">
@@ -31,45 +35,30 @@ const Home = () => {
           </div>
         </div>
         <div className="db-key-data">
-          <div className="db-key-info">
-            <div className="db-key-img">
-              <img src={proteines} alt="" />
-            </div>
-            <div className="db-key-text">
-              <h2 className="db-key-title">1,930Kcal</h2>
-              <p className="db-key-type">Calories</p>
-            </div>
-          </div>
-          <div className="db-key-info">
-            <div className="db-key-img">
-              <img src={proteines} alt="" />
-            </div>
-
-            <div className="db-key-text">
-              <h2 className="db-key-title">1,930Kcal</h2>
-              <p className="db-key-type">Calories</p>
-            </div>
-          </div>
-          <div className="db-key-info">
-            <div className="db-key-img">
-              <img src={proteines} alt="" />
-            </div>
-
-            <div className="db-key-text">
-              <h2 className="db-key-title">1,930Kcal</h2>
-              <p className="db-key-type">Calories</p>
-            </div>
-          </div>
-          <div className="db-key-info">
-            <div className="db-key-img">
-              <img src={proteines} alt="" />
-            </div>
-
-            <div className="db-key-text">
-              <h2 className="db-key-title">1,930Kcal</h2>
-              <p className="db-key-type">Calories</p>
-            </div>
-          </div>
+          <KeyData
+            imgElement={calories}
+            backColor={"#FBEAEA"}
+            typeKey={"Calories"}
+            texteKey={"1,930Kcal"}
+          />
+          <KeyData
+            imgElement={proteines}
+            backColor={"#E9F4FB"}
+            typeKey={"Proteines"}
+            texteKey={"155g"}
+          />
+          <KeyData
+            imgElement={glucides}
+            backColor={"#FEFAE9"}
+            typeKey={"Glucides"}
+            texteKey={"290g"}
+          />
+          <KeyData
+            imgElement={lipides}
+            backColor={"#FBEAEF"}
+            typeKey={"Lipides"}
+            texteKey={"50g"}
+          />
         </div>
       </div>
     </section>
