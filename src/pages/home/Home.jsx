@@ -20,9 +20,11 @@ const Home = () => {
       </div>
       <div className="db-dashboard">
         <div className="db-graphics">
-          <Activity className="db-activities" />
+          <div className="db-graphics-activities">
+            <Activity />
+          </div>
 
-          <div className="db-small-charts">
+          <div className="db-graphics-small-charts">
             <div className="db-chart">
               <Sessions />
             </div>
@@ -39,25 +41,25 @@ const Home = () => {
             imgElement={calories}
             backColor={"#FBEAEA"}
             typeKey={"Calories"}
-            texteKey={"1,930Kcal"}
+            valueKey={1.93}
           />
           <KeyData
             imgElement={proteines}
             backColor={"#E9F4FB"}
             typeKey={"Proteines"}
-            texteKey={"155g"}
+            valueKey={155}
           />
           <KeyData
             imgElement={glucides}
             backColor={"#FEFAE9"}
             typeKey={"Glucides"}
-            texteKey={"290g"}
+            valueKey={290}
           />
           <KeyData
             imgElement={lipides}
             backColor={"#FBEAEF"}
             typeKey={"Lipides"}
-            texteKey={"50g"}
+            valueKey={50}
           />
         </div>
       </div>

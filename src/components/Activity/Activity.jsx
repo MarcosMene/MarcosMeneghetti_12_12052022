@@ -4,7 +4,6 @@ import {
   Bar,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   Legend,
   ResponsiveContainer,
@@ -57,27 +56,32 @@ const data = [
 
 export default function Activity() {
   return (
-    <ResponsiveContainer className="dailyActivity">
-      <BarChart
+    <div className="dailyActivity">
+      <ResponsiveContainer
+        title="Durée moyenne des sessions"
         width="100%"
         height="100%"
-        data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
       >
-        <Legend width={200} verticalAlign="top" align="right" height={56} />
+        <BarChart
+          width="100%"
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <Legend width={100} verticalAlign="top" align="right" height={56} />
 
-        <XAxis dataKey="name" scale="band" />
-        <YAxis type="number" domain={["dataMin", "dataMax"]} />
-        <Tooltip />
+          <XAxis dataKey="name" scale="band" />
+          <YAxis type="number" domain={["dataMin", "dataMax"]} />
+          <Tooltip />
 
-        <Bar dataKey="pv" fill="#000" barSize={8} radius={[5, 5, 0, 0]} />
-        <Bar dataKey="uv" fill="#FF0101" barSize={8} radius={[5, 5, 0, 0]} />
-      </BarChart>
-    </ResponsiveContainer>
+          <Bar dataKey="pv" fill="#000" barSize={8} radius={[5, 5, 0, 0]} />
+          <Bar dataKey="uv" fill="#FF0101" barSize={8} radius={[5, 5, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
   );
 }

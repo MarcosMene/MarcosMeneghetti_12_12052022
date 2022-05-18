@@ -1,9 +1,18 @@
 .sessions {
-    height: 100%;
+    height: 263px;
     width: 100%;
     display: flex;
     align-items: center;
     background-color: #FBFBFB;
     border-radius: 5px;
-    padding: 40px 0px;
+    padding: 10px;
+}
+
+.sessions>div>.recharts-wrapper {
+    width: 100% !important;
+
+}
+
+.sessions>div>.recharts-wrapper>.recharts-surface {
+    max-width: 100%;
 }

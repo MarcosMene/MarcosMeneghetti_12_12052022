@@ -3,6 +3,15 @@ import running from "../../assets/running.svg";
 import sportsee from "../../assets/sportsee.svg";
 import "./header.scss";
 
+/**
+ * @description create header component for the page.
+ *
+ * @param {symbol} running is the image of logo
+ * @param {string} sportsee is the text of logo
+ *
+ * @returns {JSX.Element}
+ */
+
 const Header = () => {
   return (
     <header className="header">

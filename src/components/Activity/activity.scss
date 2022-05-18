@@ -1,9 +1,27 @@
 .dailyActivity {
-    height: 100%;
-    width: 100%;
+    height: 320px;
+    width: auto;
     display: flex;
     align-items: center;
     background-color: #FBFBFB;
     border-radius: 5px;
-    margin-bottom: 10px;
+    padding: 10px;
+
+
 }
+
+.dailyActivity>div>.recharts-wrapper {
+    width: 100% !important;
+
+}
+
+.dailyActivity>div>.recharts-wrapper>.recharts-surface {
+    max-width: 100%;
+}
+
+
+// .recharts-surface,
+// .recharts-wrapper {
+//     width: 100% !important;
+//     height: 100% !important;
+// }
