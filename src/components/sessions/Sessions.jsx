@@ -1,58 +1,62 @@
 import React from "react";
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 import "./sessions.scss";
 const data = [
   {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    name: "L",
+    uv: 400,
+    pv: 240,
+    amt: 200,
   },
   {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    name: "M",
+    uv: 300,
+    pv: 198,
+    amt: 220,
   },
   {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    name: "M",
+    uv: 200,
+    pv: 980,
+    amt: 220,
   },
   {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    name: "J",
+    uv: 280,
+    pv: 308,
+    amt: 200,
   },
   {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    name: "V",
+    uv: 190,
+    pv: 480,
+    amt: 281,
   },
   {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
+    name: "S",
+    uv: 230,
+    pv: 300,
+    amt: 200,
   },
   {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    name: "D",
+    uv: 340,
+    pv: 400,
+    amt: 200,
   },
 ];
+
+function CustomTooltip({ payload, active }) {
+  if (active) {
+    return (
+      <div className="custom-tooltip">
+        <p className="label">{payload[0].value}</p>
+      </div>
+    );
+  }
+
+  return null;
+}
 
 export default function Sessions() {
   return (
@@ -64,16 +68,15 @@ export default function Sessions() {
           data={data}
           margin={{
             top: 0,
-            right: 30,
-            left: 0,
+            right: 20,
+            left: 20,
             bottom: 0,
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+          <XAxis dataKey="name" stroke="#FFF" />
+          {/* <YAxis /> */}
+          <Tooltip content={<CustomTooltip />} />
+          <Area type="monotone" dataKey="uv" stroke="#FFF" fill="#FF0101" />
         </AreaChart>
       </ResponsiveContainer>
     </div>
