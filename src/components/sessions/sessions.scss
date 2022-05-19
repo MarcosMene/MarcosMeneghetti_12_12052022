@@ -1,11 +1,35 @@
 .sessions {
-    height: 263px;
+    height: 100%;
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     background-color: #FF0000;
     border-radius: 5px;
     padding: 10px;
+    position: relative;
+
+    .sessions-title {
+        position: absolute;
+        top: 20px;
+        left: 40px;
+        z-index: 1;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        margin-right: auto;
+        margin-left: 30px;
+
+        h2 {
+            font-size: 0.938rem;
+            font-weight: 500;
+            color: #FF8181;
+        }
+    }
+
+
 
     .label {
         color: #000;

@@ -2,19 +2,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 
 
 body {
-    font-family: 'Roboto', sans-serif;
+
     background-color: #fff;
     max-width: 2000px;
     margin: 0 auto;
 }
 
+ul,
 li {
     list-style: none;
+
 }
 
 a {

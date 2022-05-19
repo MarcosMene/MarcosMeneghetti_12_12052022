@@ -9,27 +9,6 @@
     padding-top: 40px;
     // margin-top: 10vh;
 
-    //GRETTING
-
-    .greetting {
-        display: flex;
-        flex-direction: column;
-
-    }
-
-    .greeting-title {
-        font-size: 3rem;
-
-        span {
-            margin-left: 10px;
-            color: #FF0101
-        }
-    }
-
-    p {
-        margin-top: 15px;
-        font-size: 1.125rem;
-    }
 }
 
 //DASHBOARD
@@ -70,7 +49,7 @@
     }
 
     .db-graphics-small-charts {
-        height: 49%;
+        height: 263px;
         width: 100%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);

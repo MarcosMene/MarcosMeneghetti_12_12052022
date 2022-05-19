@@ -61,13 +61,19 @@ function CustomTooltip({ payload, active }) {
 export default function Sessions() {
   return (
     <div className="sessions">
+      <div className="sessions-title">
+        <h2>
+          Durée moyenne des <br />
+          sessions
+        </h2>
+      </div>
       <ResponsiveContainer className="sessions">
         <AreaChart
           width={530}
-          height="100%"
+          height={300}
           data={data}
           margin={{
-            top: 0,
+            top: 50,
             right: 20,
             left: 20,
             bottom: 0,

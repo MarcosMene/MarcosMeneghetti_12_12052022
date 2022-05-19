@@ -2,26 +2,74 @@
     height: 320px;
     width: auto;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     background-color: #FBFBFB;
     border-radius: 5px;
     padding: 10px;
+    flex-direction: column;
 
+    .dailyActivity-title {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
 
+        h2 {
+            font-size: 0.938rem;
+            font-weight: bold;
+        }
+    }
+
+    .dailyActivity-description {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 30%;
+
+    }
+
+    .dailyActivity-text {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+
+        p {
+            margin: 0;
+            padding: 0;
+            font-size: 0.875rem;
+            font-weight: normal;
+            color: #000;
+        }
+
+        .dailyActivity-text-icon {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+            margin-right: 10px;
+
+        }
+
+        .dailyActivity-text-icon.black {
+            background-color: #282D30;
+        }
+
+        .dailyActivity-text-icon.red {
+            background-color: #FF0101;
+        }
+
+    }
 }
 
+
+//make chart responsive
 .dailyActivity>div>.recharts-wrapper {
     width: 100% !important;
-
 }
 
 .dailyActivity>div>.recharts-wrapper>.recharts-surface {
     max-width: 100%;
 }
-
-
-// .recharts-surface,
-// .recharts-wrapper {
-//     width: 100% !important;
-//     height: 100% !important;
-// }

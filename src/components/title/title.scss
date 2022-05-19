@@ -1,0 +1,21 @@
+ //GRETTING
+
+ .greetting {
+     display: flex;
+     flex-direction: column;
+
+ }
+
+ .greeting-title {
+     font-size: 3rem;
+
+     span {
+         margin-left: 10px;
+         color: #FF0101
+     }
+ }
+
+ p {
+     margin-top: 15px;
+     font-size: 1.125rem;
+ }

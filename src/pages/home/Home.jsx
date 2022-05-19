@@ -1,23 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./home.scss";
+import { getInfoUser } from "../../Api/ApiServices";
 import proteines from "../../assets/proteines.svg";
 import glucides from "../../assets/apple.svg";
 import lipides from "../../assets/cheeseburger.svg";
 import calories from "../../assets/calories.svg";
+
 import Activity from "../../components/Activity/Activity";
 import Sessions from "../../components/sessions/Sessions";
 import Performance from "../../components/performance/Performance";
 import Score from "../../components/score/Score";
 import KeyData from "../../components/key-data/KeyData";
+import Title from "../../components/title/Title";
+import { useParams } from "react-router-dom";
+
 const Home = () => {
+  const [data, setData] = useState([]);
+  const { id } = useParams();
+
+  console.log(getInfoUser);
+
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     try {
+  //       const response = await getInfoUser(id);
+  //       // if (!response) return alert("data not found");
+  //       setData(response.data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   getData();
+  // }, [id]);
+  // if (data.length === 0) {
+  //   return null;
+  // }
+
   return (
     <section className="home">
-      <div className="greetting">
-        <h1 className="greeting-title">
-          Bonjour<span className="greeting-user">Thomas</span>
-        </h1>
-        <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-      </div>
+      <Title name="thomas" />
+
       <div className="db-dashboard">
         <div className="db-graphics">
           <div className="db-graphics-activities">
