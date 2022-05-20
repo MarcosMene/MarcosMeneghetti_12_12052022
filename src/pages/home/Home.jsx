@@ -1,6 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./home.scss";
-import { getInfoUser } from "../../Api/ApiServices";
+
+import {
+  getUserInfo,
+  getActivities,
+  getAverageSessions,
+  getPerformance,
+} from "../../Services/ApiCall";
+
 import proteines from "../../assets/proteines.svg";
 import glucides from "../../assets/apple.svg";
 import lipides from "../../assets/cheeseburger.svg";
@@ -12,29 +19,14 @@ import Performance from "../../components/performance/Performance";
 import Score from "../../components/score/Score";
 import KeyData from "../../components/key-data/KeyData";
 import Title from "../../components/title/Title";
-import { useParams } from "react-router-dom";
 
 const Home = () => {
-  const [data, setData] = useState([]);
-  const { id } = useParams();
+  //User data for the dashboard
+  const [userData, setUserData] = useState({});
+  const [userDataLoading, setUserDataLoading] = useState(false);
+  const [userDataError, setUserDataError] = useState(false);
 
-  console.log(getInfoUser);
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     try {
-  //       const response = await getInfoUser(id);
-  //       // if (!response) return alert("data not found");
-  //       setData(response.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   getData();
-  // }, [id]);
-  // if (data.length === 0) {
-  //   return null;
-  // }
+  //
 
   return (
     <section className="home">
