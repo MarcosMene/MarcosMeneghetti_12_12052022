@@ -1,83 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import "./home.scss";
-
-import {
-  getUserInfo,
-  getActivities,
-  getAverageSessions,
-  getPerformance,
-} from "../../Services/ApiCall";
-
-import proteines from "../../assets/proteines.svg";
-import glucides from "../../assets/apple.svg";
-import lipides from "../../assets/cheeseburger.svg";
-import calories from "../../assets/calories.svg";
-
-import Activity from "../../components/Activity/Activity";
-import Sessions from "../../components/sessions/Sessions";
-import Performance from "../../components/performance/Performance";
-import Score from "../../components/score/Score";
-import KeyData from "../../components/key-data/KeyData";
-import Title from "../../components/title/Title";
-
+import Karl from "../../assets/users/Karl.png";
+import Cecilia from "../../assets/users/Cecilia.png";
 const Home = () => {
-  //User data for the dashboard
-  const [userData, setUserData] = useState({});
-  const [userDataLoading, setUserDataLoading] = useState(false);
-  const [userDataError, setUserDataError] = useState(false);
-
-  //
-
   return (
-    <section className="home">
-      <Title name="thomas" />
-
-      <div className="db-dashboard">
-        <div className="db-graphics">
-          <div className="db-graphics-activities">
-            <Activity />
+    <div className="home">
+      <h2>Select one user</h2>
+      <div className="home-users">
+        <Link to="/12" className="users-link">
+          <div className="home-user">
+            <img src={Karl} alt="Karl" className="user-image" />
+            <p>Karl Dovineau</p>
           </div>
-
-          <div className="db-graphics-small-charts">
-            <div className="db-chart">
-              <Sessions />
-            </div>
-            <div className="db-chart">
-              <Performance />
-            </div>
-            <div className="db-chart">
-              <Score />
-            </div>
+        </Link>
+        <Link to="/18" className="users-link">
+          <div className="home-user">
+            <img src={Cecilia} alt="Cecilia" className="user-image" />
+            <p>Cecilia Ratorez</p>
           </div>
-        </div>
-        <div className="db-key-data">
-          <KeyData
-            imgElement={calories}
-            backColor={"#FBEAEA"}
-            typeKey={"Calories"}
-            valueKey={1.93}
-          />
-          <KeyData
-            imgElement={proteines}
-            backColor={"#E9F4FB"}
-            typeKey={"Proteines"}
-            valueKey={155}
-          />
-          <KeyData
-            imgElement={glucides}
-            backColor={"#FEFAE9"}
-            typeKey={"Glucides"}
-            valueKey={290}
-          />
-          <KeyData
-            imgElement={lipides}
-            backColor={"#FBEAEF"}
-            typeKey={"Lipides"}
-            valueKey={50}
-          />
-        </div>
+        </Link>
       </div>
-    </section>
+    </div>
   );
 };
 
