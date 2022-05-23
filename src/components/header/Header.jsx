@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import running from "../../assets/running.svg";
 import sportsee from "../../assets/sportsee.svg";
 import "./header.scss";
@@ -21,7 +22,10 @@ const Header = () => {
       </div>
       <nav className="navigation">
         <ul className="nav">
-          <li className="nav-item">Accueil</li>
+          <li className="nav-item">
+            <NavLink to="/">Accueil </NavLink>
+          </li>
+
           <li className="nav-item">Profil</li>
           <li className="nav-item">Réglage</li>
           <li className="nav-item">Communauté</li>

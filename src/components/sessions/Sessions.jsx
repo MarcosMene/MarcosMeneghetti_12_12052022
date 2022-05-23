@@ -1,56 +1,56 @@
 import React from "react";
 import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 import "./sessions.scss";
-const data = [
-  {
-    name: "L",
-    uv: 400,
-    pv: 240,
-    amt: 200,
-  },
-  {
-    name: "M",
-    uv: 300,
-    pv: 198,
-    amt: 220,
-  },
-  {
-    name: "M",
-    uv: 200,
-    pv: 980,
-    amt: 220,
-  },
-  {
-    name: "J",
-    uv: 280,
-    pv: 308,
-    amt: 200,
-  },
-  {
-    name: "V",
-    uv: 190,
-    pv: 480,
-    amt: 281,
-  },
-  {
-    name: "S",
-    uv: 230,
-    pv: 300,
-    amt: 200,
-  },
-  {
-    name: "D",
-    uv: 340,
-    pv: 400,
-    amt: 200,
-  },
-];
+// const data = [
+//   {
+//     name: "L",
+//     uv: 400,
+//     pv: 240,
+//     amt: 200,
+//   },
+//   {
+//     name: "M",
+//     uv: 300,
+//     pv: 198,
+//     amt: 220,
+//   },
+//   {
+//     name: "M",
+//     uv: 200,
+//     pv: 980,
+//     amt: 220,
+//   },
+//   {
+//     name: "J",
+//     uv: 280,
+//     pv: 308,
+//     amt: 200,
+//   },
+//   {
+//     name: "V",
+//     uv: 190,
+//     pv: 480,
+//     amt: 281,
+//   },
+//   {
+//     name: "S",
+//     uv: 230,
+//     pv: 300,
+//     amt: 200,
+//   },
+//   {
+//     name: "D",
+//     uv: 340,
+//     pv: 400,
+//     amt: 200,
+//   },
+// ];
 
 function CustomTooltip({ payload, active }) {
   if (active) {
     return (
       <div className="custom-tooltip">
-        <p className="label">{payload[0].value}</p>
+        {/* <p className="label">{payload[0].value}</p> */}
       </div>
     );
   }
@@ -58,7 +58,7 @@ function CustomTooltip({ payload, active }) {
   return null;
 }
 
-export default function Sessions() {
+export default function Sessions({ session }) {
   return (
     <div className="sessions">
       <div className="sessions-title">
@@ -71,7 +71,7 @@ export default function Sessions() {
         <AreaChart
           width={530}
           height={300}
-          data={data}
+          data={session}
           margin={{
             top: 50,
             right: 20,

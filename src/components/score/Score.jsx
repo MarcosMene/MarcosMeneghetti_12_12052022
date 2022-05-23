@@ -16,12 +16,13 @@ const data = [
   },
 ];
 
-export default function Score() {
+const Score = ({ score }) => {
+  // function to render value inside radial bar chart
   const renderLegend = () => {
     // const {payload } = props
     return (
       <div className="radialBarLegend">
-        <span>{data[0].uv}%</span>
+        <span>{score}%</span>
         <p>de votre objectif</p>
       </div>
     );
@@ -38,7 +39,7 @@ export default function Score() {
           barSize={10}
           data={data}
           startAngle={90}
-          endAngle={220}
+          endAngle={(360 * score) / 100 + 90}
           backgroundColor="transparent"
         >
           <PolarAngleAxis
@@ -89,4 +90,6 @@ export default function Score() {
       </ResponsiveContainer>
     </div>
   );
-}
+};
+
+export default Score;
