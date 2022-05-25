@@ -6,29 +6,27 @@
 }
 
 
-
 body {
-
     background-color: #fff;
-    max-width: 2000px;
     margin: 0 auto;
+}
+
+.root {
+    max-width: 2500px;
 }
 
 ul,
 li {
     list-style: none;
-
 }
 
 a {
     text-decoration: none;
     color: #fff;
-
 }
 
 .main {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-
 }

@@ -20,6 +20,7 @@ import Performance from "../../components/performance/Performance";
 import Score from "../../components/score/Score";
 import KeyData from "../../components/key-data/KeyData";
 import Title from "../../components/title/Title";
+import Page404 from "../page404/Page404";
 
 const Home = () => {
   //User data for the dashboard
@@ -62,9 +63,16 @@ const Home = () => {
         }
       }
     };
+
     const getActivity = async () => {
       try {
         const response = await getActivities(id);
+
+        //change format date yyyy-mm-dd from data to number 1 to 7
+        for (let i = 0; i < response.data.sessions.length; i++) {
+          response.data.sessions[i].day = i + 1;
+        }
+
         setDataActivity(response.data);
         setDataLodingActivity(true);
       } catch (error) {
@@ -78,10 +86,31 @@ const Home = () => {
         }
       }
     };
+
     const getPerformance = async () => {
       try {
         const response = await getPerformances(id);
-        setDataPerformance(response.data);
+        const DataRadarFrench = response.data.data.map((data) => {
+          switch (data.kind) {
+            case 1:
+              return { ...data, kind: "Cardio" };
+            case 2:
+              return { ...data, kind: "Energie" };
+            case 3:
+              return { ...data, kind: "Endurance" };
+            case 4:
+              return { ...data, kind: "Force" };
+            case 5:
+              return { ...data, kind: "Vitesse" };
+            case 6:
+              return { ...data, kind: "Intensité" };
+            default:
+              return { ...data };
+          }
+        });
+
+        setDataPerformance(DataRadarFrench.reverse());
+
         setDataLodingPerformance(true);
       } catch (error) {
         setDataErrorPerformance(true);
@@ -94,10 +123,35 @@ const Home = () => {
         }
       }
     };
+
     const getSession = async () => {
       try {
         const response = await getAverageSessions(id);
-        setDataSession(response.data);
+
+        //change format day 1 to letters Monday to Sunday
+        const WeekLetters = response.data.sessions.map((data) => {
+          switch (data.day) {
+            case 1:
+              return { ...data, day: "L" };
+            case 2:
+              return { ...data, day: "M" };
+            case 3:
+              return { ...data, day: "M" };
+            case 4:
+              return { ...data, day: "J" };
+            case 5:
+              return { ...data, day: "V" };
+            case 6:
+              return { ...data, day: "S" };
+            case 7:
+              return { ...data, day: "D" };
+            default:
+              return { ...data };
+          }
+        });
+        console.log(WeekLetters);
+        setDataSession(WeekLetters);
+        console.log(response.data);
         setDataLodingSession(true);
       } catch (error) {
         setDataErrorSession(true);
@@ -137,16 +191,15 @@ const Home = () => {
     dataErrorSession
   ) {
     return (
-      <div className="dataNotFound">
-        <h2>Data not found</h2>
+      <div className="main">
+        <Page404 />
       </div>
     );
   }
 
   return (
-    <section className="user">
+    <div className="user">
       <Title name={data.userInfos.firstName} />
-
       <div className="db-dashboard">
         <div className="db-graphics">
           <div className="db-graphics-activities">
@@ -155,14 +208,11 @@ const Home = () => {
 
           <div className="db-graphics-small-charts">
             <div className="db-chart">
-              <Sessions session={dataSession.sessions} />
+              <Sessions session={dataSession} />
             </div>
+
             <div className="db-chart">
-              <Performance
-                performance={dataPerformance.data.data}
-                datakey={dataPerformance.data.data}
-                kind={dataPerformance.data}
-              />
+              <Performance performances={dataPerformance} />
             </div>
             <div className="db-chart">
               <Score
@@ -200,7 +250,7 @@ const Home = () => {
           />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

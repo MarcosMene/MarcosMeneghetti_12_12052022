@@ -1,60 +1,26 @@
 import React from "react";
-import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from "recharts";
+import {
+  AreaChart,
+  Area,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 import "./sessions.scss";
-// const data = [
-//   {
-//     name: "L",
-//     uv: 400,
-//     pv: 240,
-//     amt: 200,
-//   },
-//   {
-//     name: "M",
-//     uv: 300,
-//     pv: 198,
-//     amt: 220,
-//   },
-//   {
-//     name: "M",
-//     uv: 200,
-//     pv: 980,
-//     amt: 220,
-//   },
-//   {
-//     name: "J",
-//     uv: 280,
-//     pv: 308,
-//     amt: 200,
-//   },
-//   {
-//     name: "V",
-//     uv: 190,
-//     pv: 480,
-//     amt: 281,
-//   },
-//   {
-//     name: "S",
-//     uv: 230,
-//     pv: 300,
-//     amt: 200,
-//   },
-//   {
-//     name: "D",
-//     uv: 340,
-//     pv: 400,
-//     amt: 200,
-//   },
-// ];
 
 function CustomTooltip({ payload, active }) {
   if (active) {
     return (
       <div className="custom-tooltip">
-        {/* <p className="label">{payload[0].value}</p> */}
+        <p className="label">
+          {payload[0].value}
+          <span>min</span>
+        </p>
       </div>
     );
   }
-
   return null;
 }
 
@@ -67,22 +33,31 @@ export default function Sessions({ session }) {
           sessions
         </h2>
       </div>
-      <ResponsiveContainer className="sessions">
+      <ResponsiveContainer width="100%" height="100%">
         <AreaChart
-          width={530}
-          height={300}
+          // width={200}
+          // height={400}
+          outerRadius={90}
           data={session}
           margin={{
-            top: 50,
-            right: 20,
-            left: 20,
+            top: 30,
+            left: 5,
+            right: 5,
             bottom: 0,
           }}
         >
-          <XAxis dataKey="name" stroke="#FFF" />
-          {/* <YAxis /> */}
+          <XAxis dataKey="day" stroke="#fff" tickLine={false} />
+          <YAxis hide={true} />
           <Tooltip content={<CustomTooltip />} />
-          <Area type="monotone" dataKey="uv" stroke="#FFF" fill="#FF0101" />
+          <Line type="monotone" dataKey="sessionLength" />
+          <Area
+            type="monotone"
+            dataKey="sessionLength"
+            stroke="#fff"
+            strokeWidth="3"
+            fill="#FF0D0D"
+            activeDot={{ stroke: "#FF3333", strokeWidth: 6, r: 6 }}
+          />
         </AreaChart>
       </ResponsiveContainer>
     </div>

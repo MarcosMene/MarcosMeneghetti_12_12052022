@@ -3,7 +3,7 @@
     width: auto;
     display: flex;
     align-items: flex-start;
-    background-color: #FBFBFB;
+    background-color: #f5f4f4;
     border-radius: 5px;
     padding: 10px;
     flex-direction: column;
@@ -26,7 +26,6 @@
         align-items: center;
         justify-content: space-between;
         width: 30%;
-
     }
 
     .dailyActivity-text {
@@ -47,7 +46,6 @@
         .dailyActivity-text-icon {
             width: 8px;
             height: 8px;
-
             border-radius: 50%;
             margin-right: 10px;
 
@@ -61,6 +59,25 @@
             background-color: #FF0101;
         }
 
+    }
+}
+
+//tooltip
+.custom-tooltip-activity {
+    background-color: red;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 0 10px;
+    margin: 0;
+
+    p {
+        margin: 0;
+        padding: 0;
+        font-size: 0.8rem;
+        color: #fff;
     }
 }
 

@@ -8,26 +8,24 @@
     border-radius: 5px;
     padding: 10px;
     flex-direction: column;
+    position: relative;
 
     .performance-title {
-
-
-
         h2 {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
             font-size: 0.938rem;
             font-weight: 500;
             color: #fff;
         }
     }
 
-
-
-
 }
 
 .performance>div>.recharts-wrapper {
     width: 100% !important;
-
 }
 
 .performance>div>.recharts-wrapper>.recharts-surface {

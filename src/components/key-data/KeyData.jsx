@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import "./keyData.scss";
 /**
  *
  * @description create key-data component for the dashboard.
@@ -14,13 +14,13 @@ import PropTypes from "prop-types";
  */
 const KeyData = ({ imgElement, backColor, typeKey, valueKey }) => {
   return (
-    <div className="db-key-info ">
+    <div className="db-key-info">
       <div className="db-key-img" style={{ backgroundColor: backColor }}>
         <img src={imgElement} alt={typeKey} />
       </div>
       <div className="db-key-text">
         <h2 className="db-key-title">
-          {valueKey}
+          {valueKey.toLocaleString("en-US")} {/* format number */}
           {typeKey === "Calories" ? <span>Kcal</span> : <span>g</span>}
         </h2>
         <p className="db-key-type">{typeKey}</p>
@@ -30,10 +30,10 @@ const KeyData = ({ imgElement, backColor, typeKey, valueKey }) => {
 };
 
 KeyData.propTypes = {
-  imgElement: PropTypes.string.isRequired,
-  backColor: PropTypes.string.isRequired,
-  typeKey: PropTypes.string.isRequired,
-  valueKey: PropTypes.number.isRequired,
+  imgElement: PropTypes.string,
+  backColor: PropTypes.string,
+  valueKey: PropTypes.number,
+  typeKey: PropTypes.string,
 };
 
 export default KeyData;

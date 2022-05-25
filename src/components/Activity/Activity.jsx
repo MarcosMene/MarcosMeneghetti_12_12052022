@@ -6,54 +6,24 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
+  CartesianGrid,
 } from "recharts";
 import "./activity.scss";
-// const data = [
-//   {
-//     name: "Page A",
-//     uv: 20,
-//     pv: 20,
-//     amt: 20,
-//   },
-//   {
-//     name: "Page B",
-//     uv: 20,
-//     pv: 21,
-//     amt: 22,
-//   },
-//   {
-//     name: "Page C",
-//     uv: 20,
-//     pv: 21,
-//     amt: 22,
-//   },
-//   {
-//     name: "Page D",
-//     uv: 27,
-//     pv: 39,
-//     amt: 20,
-//   },
-//   {
-//     name: "Page E",
-//     uv: 19,
-//     pv: 28,
-//     amt: 21,
-//   },
-//   {
-//     name: "Page F",
-//     uv: 23,
-//     pv: 38,
-//     amt: 25,
-//   },
-//   {
-//     name: "Page G",
-//     uv: 34,
-//     pv: 43,
-//     amt: 21,
-//   },
-// ];
 
 export default function Activity({ activity }) {
+  //custom tooltip of BarChart
+  function CustomTooltip({ payload, active }) {
+    if (active) {
+      return (
+        <div className="custom-tooltip-activity">
+          <p className="label">{`${payload[0].value}`}kg</p>
+          <p className="label">{`${payload[1].value}`}KCal</p>
+        </div>
+      );
+    }
+    return null;
+  }
+
   return (
     <div className="dailyActivity">
       <div className="dailyActivity-title">
@@ -74,31 +44,48 @@ export default function Activity({ activity }) {
         width="100%"
         height="100%"
       >
-        <BarChart
-          width="100%"
-          data={activity}
-          margin={{
-            top: 15,
-            right: 30,
-            left: 20,
-            bottom: 0,
-          }}
-        >
-          <XAxis dataKey="day" scale="band" />
-          <YAxis type="number" domain={activity} />
-          <Tooltip />
-
+        <BarChart data={activity} barGap={8} barCategoryGap={1}>
+          <CartesianGrid vertical={false} strokeDasharray="1 1" />
+          <XAxis
+            dataKey="day"
+            tickLine={false}
+            tick={{ fontSize: 14 }}
+            dy={15}
+            stroke="1 1"
+          />
+          <YAxis
+            yAxisId="kilogram"
+            dataKey="kilogram"
+            type="number"
+            domain={["dataMin-2", "dataMax+1"]}
+            tickCount="3"
+            axisLine={false}
+            orientation="right"
+            tickLine={false}
+            tick={{ fontSize: 14 }}
+            dx={15}
+          />
+          <YAxis
+            yAxisId="calories"
+            dataKey="calories"
+            type="number"
+            // domain={[0, "dataMax+100"]}
+            hide={true}
+          />
+          <Tooltip content={<CustomTooltip />} />
           <Bar
+            yAxisId="kilogram"
             dataKey="kilogram"
             fill="#282D30"
-            barSize={8}
-            radius={[10, 10, 0, 0]}
+            barSize={7}
+            radius={[50, 50, 0, 0]}
           />
           <Bar
+            yAxisId="calories"
             dataKey="calories"
-            fill="#FF0101"
-            barSize={8}
-            radius={[5, 5, 0, 0]}
+            fill="#E60000"
+            barSize={7}
+            radius={[50, 50, 0, 0]}
           />
         </BarChart>
       </ResponsiveContainer>

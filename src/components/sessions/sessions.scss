@@ -12,9 +12,7 @@
     .sessions-title {
         position: absolute;
         top: 20px;
-        left: 40px;
-        z-index: 1;
-
+        left: 20px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -23,13 +21,11 @@
         margin-left: 30px;
 
         h2 {
-            font-size: 0.938rem;
+            font-size: 1rem;
             font-weight: 500;
             color: #FF8181;
         }
     }
-
-
 
     .label {
         color: #000;
@@ -46,4 +42,28 @@
 
 .sessions>div>.recharts-wrapper>.recharts-surface {
     max-width: 100%;
+}
+
+//tooltip
+.custom-tooltip {
+    background-color: #fff;
+    width: 39px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 20px 30px;
+
+    .label {
+        margin: 0;
+        padding: 0;
+        font-size: 0.8rem;
+        color: #000;
+        font-weight: bold;
+
+        span {
+            margin-left: 5px;
+        }
+    }
 }

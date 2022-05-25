@@ -7,12 +7,10 @@ import {
   Legend,
 } from "recharts";
 import "./score.scss";
-const data = [
+
+const datacolor = [
   {
-    name: "unknow",
-    uv: 6.67,
-    pv: 4800,
-    fill: "#FBFBFB",
+    fill: "none",
   },
 ];
 
@@ -23,7 +21,11 @@ const Score = ({ score }) => {
     return (
       <div className="radialBarLegend">
         <span>{score}%</span>
-        <p>de votre objectif</p>
+        <p>
+          de votre
+          <br />
+          objectif
+        </p>
       </div>
     );
   };
@@ -37,10 +39,9 @@ const Score = ({ score }) => {
           innerRadius="80%"
           outerRadius="80%"
           barSize={10}
-          data={data}
+          data={datacolor}
           startAngle={90}
           endAngle={(360 * score) / 100 + 90}
-          backgroundColor="transparent"
         >
           <PolarAngleAxis
             type="number"
@@ -52,7 +53,7 @@ const Score = ({ score }) => {
             minAngle={300}
             background={{ fill: "#FF0101" }}
             Clockwise={false}
-            dataKey="value"
+            dataKey={score}
             cornerRadius={10}
             circle
             cx="50%"

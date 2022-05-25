@@ -1,23 +1,28 @@
+.radialBarLegend {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        margin-top: 13px;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #74798C;
+        line-height: 30px;
+    }
+}
+
 .score {
     height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
-    background-color: #FBFBFB;
+    background-color: #f5f4f4;
     border-radius: 5px;
     padding: 10px;
     position: relative;
-
-    h2 {
-        font-size: 0.938rem;
-        font-weight: 500;
-        color: #000;
-        align-self: flex-start;
-        margin: 20px 0;
-    }
-
-
-
 }
 
 .score>div>.recharts-wrapper {
