@@ -191,9 +191,9 @@ const Home = () => {
     dataErrorSession
   ) {
     return (
-      <div className="main">
+      <>
         <Page404 />
-      </div>
+      </>
     );
   }
 
