@@ -46,8 +46,13 @@ export default function Sessions({ session }) {
             bottom: 0,
           }}
         >
-          <XAxis dataKey="day" stroke="#fff" tickLine={false} />
-          <YAxis hide={true} />
+          <XAxis
+            dataKey="day"
+            stroke="#fff"
+            tickLine={false}
+            axisLine={false}
+          />
+          <YAxis hide={true} domain={["dataMin-10", "dataMax+10"]} />
           <Tooltip content={<CustomTooltip />} />
           <Line type="monotone" dataKey="sessionLength" />
           <Area
