@@ -16,7 +16,7 @@ function App() {
         <SideMenu />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/:id" element={<User />} />
+          <Route exact path="/user/:id" element={<User />} />
           <Route path="*" element={<Page404 />} />
         </Routes>
       </div>

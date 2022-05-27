@@ -8,13 +8,13 @@ const Home = () => {
     <div className="home">
       <h2>Select one user</h2>
       <div className="home-users">
-        <Link to="/12" className="users-link">
+        <Link to="/user/12" className="users-link">
           <div className="home-user">
             <img src={Karl} alt="Karl" className="user-image" />
             <p>Karl Dovineau</p>
           </div>
         </Link>
-        <Link to="/18" className="users-link">
+        <Link to="/user/18" className="users-link">
           <div className="home-user">
             <img src={Cecilia} alt="Cecilia" className="user-image" />
             <p>Cecilia Ratorez</p>

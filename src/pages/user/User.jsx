@@ -21,6 +21,8 @@ import Score from "../../components/score/Score";
 import KeyData from "../../components/key-data/KeyData";
 import Title from "../../components/title/Title";
 import Page404 from "../page404/Page404";
+import Page500 from "../error/Error";
+import Error from "../error/Error";
 
 const Home = () => {
   //User data for the dashboard
@@ -50,6 +52,9 @@ const Home = () => {
     const getData = async () => {
       try {
         const response = await getUserInfo(id);
+        if (!response) {
+          return <div className="user">Identifiant non reconnu</div>;
+        }
         setData(response.data);
         setDataLoding(true);
       } catch (error) {
@@ -67,7 +72,9 @@ const Home = () => {
     const getActivity = async () => {
       try {
         const response = await getActivities(id);
-
+        if (!response) {
+          return <div className="page404">Identifiant non reconnu</div>;
+        }
         //change format date yyyy-mm-dd from data to number 1 to 7
         for (let i = 0; i < response.data.sessions.length; i++) {
           response.data.sessions[i].day = i + 1;
@@ -78,6 +85,7 @@ const Home = () => {
       } catch (error) {
         setDataErrorActivity(true);
         if (error.response) {
+          <Page500 />;
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);
@@ -90,6 +98,9 @@ const Home = () => {
     const getPerformance = async () => {
       try {
         const response = await getPerformances(id);
+        if (!response) {
+          return <div className="page404">Identifiant non reconnu</div>;
+        }
         const DataRadarFrench = response.data.data.map((data) => {
           switch (data.kind) {
             case 1:
@@ -115,6 +126,7 @@ const Home = () => {
       } catch (error) {
         setDataErrorPerformance(true);
         if (error.response) {
+          <Page500 />;
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);
@@ -127,6 +139,9 @@ const Home = () => {
     const getSession = async () => {
       try {
         const response = await getAverageSessions(id);
+        if (!response) {
+          return <div className="page404">Identifiant non reconnu</div>;
+        }
 
         //change format day 1 to letters Monday to Sunday
         const WeekLetters = response.data.sessions.map((data) => {
@@ -156,6 +171,7 @@ const Home = () => {
       } catch (error) {
         setDataErrorSession(true);
         if (error.response) {
+          <Page500 />;
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);
@@ -170,7 +186,7 @@ const Home = () => {
     getSession();
   }, [id]);
 
-  //loading..Loading (or) and error message
+  //user not found message
   if (
     (!dataLoading ||
       !dataLoadingActivity ||
@@ -181,7 +197,7 @@ const Home = () => {
       !dataErrorPerformance ||
       !dataErrorSession)
   ) {
-    return <div className="loading">Loading...</div>;
+    return <Error />;
   }
   // or
   if (
