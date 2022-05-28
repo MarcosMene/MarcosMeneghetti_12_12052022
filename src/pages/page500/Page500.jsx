@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./page500.scss";
-const Error = () => {
+const Error500 = () => {
   return (
     <div className="pageError500">
       <div className="body-error500">
@@ -22,4 +22,4 @@ const Error = () => {
   );
 };
 
-export default Error;
+export default Error500;

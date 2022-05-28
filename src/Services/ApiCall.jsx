@@ -18,8 +18,6 @@ export const getUserInfo = async (id) => {
     return response.data;
   } catch (error) {
     console.log(error);
-
-    <Error />;
   }
 };
 
@@ -30,7 +28,6 @@ export const getActivities = async (id) => {
     return response.data;
   } catch (error) {
     console.log(error);
-    <Error />;
   }
 };
 export const getAverageSessions = async (id) => {
@@ -40,7 +37,6 @@ export const getAverageSessions = async (id) => {
     return response.data;
   } catch (error) {
     console.log(error);
-    <Error />;
   }
 };
 export const getPerformances = async (id) => {
@@ -50,6 +46,5 @@ export const getPerformances = async (id) => {
     return response.data;
   } catch (error) {
     console.log(error);
-    <Error />;
   }
 };

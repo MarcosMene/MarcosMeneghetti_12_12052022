@@ -24,7 +24,7 @@ import Page404 from "../page404/Page404";
 import Page500 from "../error/Error";
 import Error from "../error/Error";
 
-const Home = () => {
+const User = () => {
   //User data for the dashboard
   const [data, setData] = useState({});
   const [dataLoading, setDataLoding] = useState(false);
@@ -85,7 +85,6 @@ const Home = () => {
       } catch (error) {
         setDataErrorActivity(true);
         if (error.response) {
-          <Page500 />;
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);
@@ -126,7 +125,6 @@ const Home = () => {
       } catch (error) {
         setDataErrorPerformance(true);
         if (error.response) {
-          <Page500 />;
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);
@@ -171,7 +169,6 @@ const Home = () => {
       } catch (error) {
         setDataErrorSession(true);
         if (error.response) {
-          <Page500 />;
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);
@@ -188,14 +185,10 @@ const Home = () => {
 
   //user not found message
   if (
-    (!dataLoading ||
-      !dataLoadingActivity ||
-      !dataLoadingPerformance ||
-      !dataLoadingSession) &&
-    (!dataError ||
-      !dataErrorActivity ||
-      !dataErrorPerformance ||
-      !dataErrorSession)
+    !dataLoading ||
+    !dataLoadingActivity ||
+    !dataLoadingPerformance ||
+    !dataLoadingSession
   ) {
     return <Error />;
   }
@@ -270,4 +263,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default User;

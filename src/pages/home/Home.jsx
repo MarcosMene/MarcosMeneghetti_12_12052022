@@ -10,13 +10,13 @@ const Home = () => {
       <div className="home-users">
         <Link to="/user/12" className="users-link">
           <div className="home-user">
-            <img src={Karl} alt="Karl" className="user-image" />
+            <img src={Karl} alt="profile Karl" className="user-image" />
             <p>Karl Dovineau</p>
           </div>
         </Link>
         <Link to="/user/18" className="users-link">
           <div className="home-user">
-            <img src={Cecilia} alt="Cecilia" className="user-image" />
+            <img src={Cecilia} alt="profile Cecilia" className="user-image" />
             <p>Cecilia Ratorez</p>
           </div>
         </Link>

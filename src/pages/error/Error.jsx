@@ -5,7 +5,7 @@ const Error = () => {
   return (
     <div className="pageError">
       <div className="body-error">
-        <h2>Utilisateur non retrouvé</h2>
+        <h2>Utilisateur non reconnu</h2>
       </div>
     </div>
   );
