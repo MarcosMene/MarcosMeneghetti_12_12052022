@@ -9,21 +9,18 @@ import {
   CartesianGrid,
 } from "recharts";
 import "./activity.scss";
+import PropTypes from "prop-types";
 
-export default function Activity({ activity }) {
-  //custom tooltip of BarChart
-  function CustomTooltip({ payload, active }) {
-    if (active) {
-      return (
-        <div className="custom-tooltip-activity">
-          <p className="label">{`${payload[0].value}`}kg</p>
-          <p className="label">{`${payload[1].value}`}KCal</p>
-        </div>
-      );
-    }
-    return null;
-  }
+/**
+ *@description Create the activity graph chart. The sessions contains an array of objects with the following properties: day, kilogram, calories
+ * @param {array} activity
+ * @param {number} day
+ * @param {number} kilogram
+ * @param {number} calories
+ * @returns {JSX.Element}
+ */
 
+const Activity = ({ activity }) => {
   return (
     <div className="dailyActivity">
       <div className="dailyActivity-title">
@@ -91,4 +88,43 @@ export default function Activity({ activity }) {
       </ResponsiveContainer>
     </div>
   );
+};
+
+/**
+ *@description a function that create a tool tip for the activity graph chart
+ * @param {array} payload
+ * @param {active} boolean
+ * @returns {JSX.Element}
+ */
+
+//custom tooltip of BarChart
+function CustomTooltip({ payload, active }) {
+  if (active) {
+    return (
+      <div className="custom-tooltip-activity">
+        <p className="label">{`${payload[0].value}`}kg</p>
+        <p className="label">{`${payload[1].value}`}KCal</p>
+      </div>
+    );
+  }
+  return null;
 }
+
+//proptypes of CustomTooltip
+CustomTooltip.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
+};
+
+//proptypes of Activity
+Activity.propTypes = {
+  activity: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.number,
+      kilogram: PropTypes.number,
+      calories: PropTypes.number,
+    })
+  ),
+};
+
+export default Activity;

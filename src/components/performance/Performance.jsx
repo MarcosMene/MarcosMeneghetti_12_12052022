@@ -8,22 +8,18 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import "./performance.scss";
+import PropTypes from "prop-types";
 
-//
-function renderPolarAngleAxis({ payload, x, y, cx, cy }) {
-  return (
-    <Text
-      verticalAnchor="middle"
-      y={y + (y - cy) / 7}
-      x={x + (x - (cx + 60)) / 2.5}
-      style={{ fill: "rgba(255, 255, 255)" }}
-    >
-      {payload.value}
-    </Text>
-  );
-}
+/**
+ * @name Performance
+ *@description create the activity graph chart
+ * @param {array} performance
+ * @param {number} kind //kind of value(cardio, energy, endurance, strength, speed, intensity)
+ * @param {number} value
+ * @returns {JSX.Element}
+ */
 
-export default function Performance({ performances }) {
+const Performance = ({ performances }) => {
   return (
     <div className="performance">
       <ResponsiveContainer
@@ -53,4 +49,45 @@ export default function Performance({ performances }) {
       </ResponsiveContainer>
     </div>
   );
+};
+
+/**
+ *@description display position of words (cardio, energy, endurance, strength, speed, intensity) in the radar chart
+ * @param {number} payload
+ * @param {number} x
+ * @param {number} y
+ * @param {number} cx
+ * @param {number} cy
+ * @returns {JSX.Element}
+ */
+
+function renderPolarAngleAxis({ payload, x, y, cx, cy }) {
+  return (
+    <Text
+      verticalAnchor="middle"
+      y={y + (y - cy) / 7}
+      x={x + (x - (cx + 60)) / 2.5}
+      style={{ fill: "rgba(255, 255, 255)" }}
+    >
+      {payload.value}
+    </Text>
+  );
 }
+
+//proptypes for readerPolarAngleAxis
+renderPolarAngleAxis.propTypes = {
+  payload: PropTypes.object.isRequired,
+};
+
+//propTypes for Performance
+
+Performance.propTypes = {
+  performance: PropTypes.arrayOf(
+    PropTypes.shape({
+      kind: PropTypes.number,
+      value: PropTypes.number,
+    })
+  ),
+};
+
+export default Performance;

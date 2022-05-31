@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./keyData.scss";
 /**
+ *@name KeyData
+ * @description create key-data component for the dashboard.It has 3 values: background-color, typekey and valueKey;
  *
- * @description create key-data component for the dashboard.
  * @param {string} imgElement is the image element
  * @param {string} backColor is the background color of element
  * @param {string} typeKey is the type of element
@@ -29,6 +30,7 @@ const KeyData = ({ imgElement, backColor, typeKey, valueKey }) => {
   );
 };
 
+//proptypes for keyData
 KeyData.propTypes = {
   imgElement: PropTypes.string,
   backColor: PropTypes.string,

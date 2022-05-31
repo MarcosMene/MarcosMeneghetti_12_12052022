@@ -1,6 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./page404.scss";
+
+/**
+ * @name Page404
+ * @description create error page404 component. It has a message error if the page is not found.
+ * @returns {JSX.Element}
+ *
+ */
+
 const Page404 = () => {
   return (
     <div className="page404">

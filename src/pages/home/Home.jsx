@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 import "./home.scss";
 import Karl from "../../assets/users/Karl.png";
 import Cecilia from "../../assets/users/Cecilia.png";
+
+/**
+ * @name Home
+ * @description create home component for the page. It has two elements the id 12 and the id 18. They are a link that send you to the profile of the user.
+ * @returns {JSX.Element}
+ *
+ */
+
 const Home = () => {
   return (
     <div className="home">

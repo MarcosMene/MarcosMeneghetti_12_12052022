@@ -7,17 +7,18 @@ import {
   Legend,
 } from "recharts";
 import "./score.scss";
+import PropTypes from "prop-types";
 
-const datacolor = [
-  {
-    fill: "none",
-  },
-];
+/**
+ * @name Score
+ * @description create score graph chart. It has the todayScore element that calcule with percentage.
+ * @param {number} score //todayScore
+ * @returns {JSX.Element}
+ */
 
 const Score = ({ score }) => {
   // function to render value inside radial bar chart
   const renderLegend = () => {
-    // const {payload } = props
     return (
       <div className="radialBarLegend">
         <span>{score}%</span>
@@ -39,7 +40,11 @@ const Score = ({ score }) => {
           innerRadius="80%"
           outerRadius="80%"
           barSize={10}
-          data={datacolor}
+          data={[
+            {
+              fill: "none",
+            },
+          ]}
           startAngle={90}
           endAngle={(360 * score) / 100 + 90}
         >
@@ -91,6 +96,11 @@ const Score = ({ score }) => {
       </ResponsiveContainer>
     </div>
   );
+};
+
+//proptypes
+Score.propTypes = {
+  score: PropTypes.number.isRequired,
 };
 
 export default Score;

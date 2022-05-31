@@ -9,22 +9,18 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import "./sessions.scss";
+import PropTypes from "prop-types";
 
-function CustomTooltip({ payload, active }) {
-  if (active) {
-    return (
-      <div className="custom-tooltip">
-        <p className="label">
-          {payload[0].value}
-          <span>min</span>
-        </p>
-      </div>
-    );
-  }
-  return null;
-}
+/**
+ *@name Sessions
+ * @description create the sessions graph chart. It has the userId and sessions. Sessions is an array of object with day and sessionlength.
+ * @param {array} session
+ * @param {string} day - the day of the week
+ * @param {number} sessionLength - the length of the session in minutes
+ * @returns {JSX.Element}
+ */
 
-export default function Sessions({ session }) {
+const Sessions = ({ session }) => {
   return (
     <div className="sessions">
       <div className="sessions-title">
@@ -35,8 +31,6 @@ export default function Sessions({ session }) {
       </div>
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart
-          // width={200}
-          // height={400}
           outerRadius={90}
           data={session}
           margin={{
@@ -67,4 +61,43 @@ export default function Sessions({ session }) {
       </ResponsiveContainer>
     </div>
   );
+};
+
+/**
+ *@name CustomToolTip
+ * @param {array} payload
+ * @param {boolean} active
+ * @returns {JSX.Element}
+ */
+
+function CustomTooltip({ payload, active }) {
+  if (active) {
+    return (
+      <div className="custom-tooltip">
+        <p className="label">
+          {payload[0].value}
+          <span>min</span>
+        </p>
+      </div>
+    );
+  }
+  return null;
 }
+
+//proptypes customTooltip
+CustomTooltip.propTypes = {
+  payload: PropTypes.array,
+  active: PropTypes.bool,
+};
+
+//proptypes Sessions
+Sessions.propTypes = {
+  session: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string.isRequired,
+      sessionLength: PropTypes.number.isRequired,
+    })
+  ),
+};
+
+export default Sessions;

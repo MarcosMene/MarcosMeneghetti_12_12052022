@@ -21,7 +21,6 @@ import Score from "../../components/score/Score";
 import KeyData from "../../components/key-data/KeyData";
 import Title from "../../components/title/Title";
 import Page404 from "../page404/Page404";
-import Page500 from "../error/Error";
 import Error from "../error/Error";
 
 const User = () => {
@@ -68,6 +67,11 @@ const User = () => {
         }
       }
     };
+
+    /**
+     *@param {number} id
+     * @returns {Object}
+     */
 
     const getActivity = async () => {
       try {
@@ -162,9 +166,9 @@ const User = () => {
               return { ...data };
           }
         });
-        console.log(WeekLetters);
+        // console.log(WeekLetters);
         setDataSession(WeekLetters);
-        console.log(response.data);
+        // console.log(response.data);
         setDataLodingSession(true);
       } catch (error) {
         setDataErrorSession(true);
@@ -192,7 +196,7 @@ const User = () => {
   ) {
     return <Error />;
   }
-  // or
+  //
   if (
     dataError ||
     dataErrorActivity ||
