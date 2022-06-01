@@ -6,7 +6,7 @@ import Cecilia from "../../assets/users/Cecilia.png";
 
 /**
  * @name Home
- * @description create home component for the page. It has two elements the id 12 and the id 18. They are a link that send you to the profile of the user.
+ * @description create home component for the page. It has two elements: the id 12 and the id 18. They are a link that send you to the profile of the user.
  * @returns {JSX.Element}
  *
  */

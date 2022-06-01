@@ -69,8 +69,9 @@ const User = () => {
     };
 
     /**
+     *@name getActivity
      *@param {number} id
-     * @returns {Object}
+     *@returns {Object}
      */
 
     const getActivity = async () => {
@@ -98,12 +99,25 @@ const User = () => {
       }
     };
 
+    /**
+     *@name getPerformance
+     *@param {number} id
+     *@returns {object}
+     */
     const getPerformance = async () => {
       try {
         const response = await getPerformances(id);
+
         if (!response) {
           return <div className="page404">Identifiant non reconnu</div>;
         }
+
+        /**
+         *@name DataRadarFrench
+         *@param {number} id
+         *@returns {Array}
+         */
+
         const DataRadarFrench = response.data.data.map((data) => {
           switch (data.kind) {
             case 1:
@@ -124,7 +138,6 @@ const User = () => {
         });
 
         setDataPerformance(DataRadarFrench.reverse());
-
         setDataLodingPerformance(true);
       } catch (error) {
         setDataErrorPerformance(true);
@@ -138,12 +151,23 @@ const User = () => {
       }
     };
 
+    /**
+     * @name getSession
+     *@param {number} id
+     *@returns {Object}
+     */
+
     const getSession = async () => {
       try {
         const response = await getAverageSessions(id);
         if (!response) {
           return <div className="page404">Identifiant non reconnu</div>;
         }
+        /**
+         * @name WeekLetters
+         *@param {number} id
+         *@returns {Array}
+         */
 
         //change format day 1 to letters Monday to Sunday
         const WeekLetters = response.data.sessions.map((data) => {
@@ -166,9 +190,7 @@ const User = () => {
               return { ...data };
           }
         });
-        // console.log(WeekLetters);
         setDataSession(WeekLetters);
-        // console.log(response.data);
         setDataLodingSession(true);
       } catch (error) {
         setDataErrorSession(true);

@@ -7,6 +7,12 @@ import User from "./pages/user/User";
 import Page404 from "./pages/page404/Page404";
 import Home from "./pages/home/Home";
 
+/**
+ *@name App
+ *@description function get together all components to render to the DOM
+ * @returns {JSX.Element}
+ */
+
 function App() {
   return (
     <Router>
