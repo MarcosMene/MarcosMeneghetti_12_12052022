@@ -1,5 +1,4 @@
   <img src="./src/assets/logo.png" width="100" />
-
 # Projet 12 - SportSee - OpenClassrooms
 
 SportSee is a project to create a page for sport coaching. The user can follow all informations about his/her sessions of coaching as well as the number of calories burned.
@@ -55,9 +54,9 @@ SportSee is a project to create a page for sport coaching. The user can follow a
 - `yarn` command will allow you to install the dependencies.
 - `yarn run start` command will allow you start the project.
 
-A message appears: Something is already running on port 3000. Would you like to run the app on another port instead? (Y/N)
+**A message appears:** Something is already running on port 3000. Would you like to run the app on another port instead? (Y/N)
 
-Type `Y` to answer yes
+Type **Y** to answer yes
 
 It will lunch the React app on the new port -> http://localhost:3001
 
@@ -66,8 +65,12 @@ It will lunch the React app on the new port -> http://localhost:3001
 ###### The URLs
 
 These are the only url availables to this project:
-http://localhost:3001/user/12
-http://localhost:3001/user/18
+
+**http://localhost:3001/user/12**
+
+**http://localhost:3001/user/18**
+
+---
 
 ###### JSdoc
 
