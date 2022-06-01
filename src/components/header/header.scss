@@ -11,31 +11,39 @@
     -webkit-box-shadow: 11px 4px 7px 5px rgba(0, 0, 0, 0.4);
     box-shadow: 11px 4px 7px 5px rgba(0, 0, 0, 0.4);
     position: relative;
-}
 
-.logo {
-    flex: 1;
-    display: flex;
-    align-items: center;
-}
+    .logo {
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
 
-.logo-image {
-    margin-right: 10px;
-    width: 200px;
-}
+    .logo-image {
+        margin-right: 10px;
+        width: 200px;
+    }
 
-.navigation {
-    flex: 3;
-}
+    .navigation {
+        flex: 3;
 
-.nav {
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.5rem;
-}
+        .nav {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1.5rem;
+        }
 
-.nav-item {
-    cursor: pointer;
+        .nav-item {
+            cursor: pointer;
+
+            a {
+                border: 1px solid transparent;
+            }
+
+            a:hover {
+                border-bottom: 1px solid #fff;
+            }
+        }
+    }
 }

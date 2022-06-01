@@ -2,18 +2,18 @@
  .greetting {
      display: flex;
      flex-direction: column;
- }
 
- .greeting-title {
-     font-size: 3rem;
+     .greeting-title {
+         font-size: 3rem;
 
-     span {
-         margin-left: 10px;
-         color: #FF0101
+         span {
+             margin-left: 10px;
+             color: #FF0101
+         }
      }
- }
 
- p {
-     margin-top: 15px;
-     font-size: 1.125rem;
+     p {
+         margin-top: 10px;
+         font-size: 1.1rem;
+     }
  }
