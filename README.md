@@ -3,17 +3,17 @@
 # Projet 12 - SportSee - OpenClassrooms
 
 SportSee is a project to create a page for sport coaching. The user can follow all informations about his/her sessions of coaching as well as the number of calories burned.
-<br>
 
 ##### Project realized by Marcos Meneghetti
 
-<hr>
+---
+
 ## Prerequisites
 
 - NodeJS (version 16.15.0 LTS)
 - Yarn
 
-<hr>
+---
 
 ## Dependencies
 
@@ -25,11 +25,14 @@ SportSee is a project to create a page for sport coaching. The user can follow a
 - Recharts (v 2.1.9)
 - node-Sass (v 7.0.1)
 
+---
+
 ## I have used
 
 ![Language - JS](https://img.shields.io/static/v1?label=Language&message=JS&color=red&style=for-the-badge&logo=javascript) ![Framework - React](https://img.shields.io/static/v1?label=Framework&message=React&color=green&style=for-the-badge&logo=react) ![Style - SASS](https://img.shields.io/static/v1?label=Style&message=SASS&color=orange&style=for-the-badge&logo=sass) ![Library - Recharts](https://img.shields.io/static/v1?label=Library&message=Recharts&color=blue&style=for-the-badge) ![Code Editor - VS Studio Code](https://img.shields.io/static/v1?label=Code+Editor&message=VS+Studio+Code&color=yellow&style=for-the-badge&logo=Visual+Studio+Code) ![Node - V16.15.0](https://img.shields.io/static/v1?label=Node&message=V16.15.0&color=brown&style=for-the-badge&logo=Node) ![HTTP Client - Axios](https://img.shields.io/static/v1?label=HTTP+Client&message=Axios&color=purple&style=for-the-badge) ![API documentation - JSDoc](https://img.shields.io/static/v1?label=API+documentation&message=JSDoc&color=pink&style=for-the-badge)
 
-<hr>
+---
+
 ## How to install
 
 ###### Create a main directory
@@ -58,17 +61,19 @@ Type `Y` to answer yes
 
 It will lunch the React app on the new port -> http://localhost:3001
 
-<hr>
+---
+
 ###### The URLs
 
 These are the only url availables to this project:
 http://localhost:3001/user/12
 http://localhost:3001/user/18
 
-<hr>
 ###### JSdoc
 
 - Install `Live Server` VS Code extension.
   You can run the JSDoc documentation in the folder `docs` by running this command on the terminal:
   `yarn docs`
   If you open docs folder (inside MarcosMeneghetti_12_2022 folder), you will see all jsdocs in HTML format. Select one HTML file. Click right mouse button on it and Open with live Server.
+
+---
