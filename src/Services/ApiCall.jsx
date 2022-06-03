@@ -20,18 +20,28 @@ const api = axios.create({
 
 export const getUserInfo = async (id) => {
   try {
-    // console.log(isMocked);
-    // console.log("DATA MOCKED?", isMocked);
-    const response =
-      isMocked === "true"
-        ? {
-            data: {
-              data: USER_MAIN_DATA.filter((e) => e.id === +id)[0],
-            },
-          }
-        : await api.get(`/${id}`);
-    // console.log("response", response.data);
-    return response.data;
+    if (isMocked === "true") {
+      const response = {
+        data: USER_MAIN_DATA.filter((e) => e.id === +id)[0],
+      };
+      return response;
+    } else {
+      const response = await api.get(`/${id}`);
+      return response.data;
+    }
+
+    // // console.log(isMocked);
+    // // console.log("DATA MOCKED?", isMocked);
+    // const response =
+    //   isMocked === "true"
+    //     ? {
+    //         data: USER_MAIN_DATA.filter((e) => e.id === +id)[0],
+    //       }
+    //     : await api.get(`/${id}`);
+    // console.log("response=>", response);
+    // console.log("response=>", response.data);
+    // console.log("response=>", response.data.data);
+    // return response;
   } catch (error) {
     console.log(error);
   }
@@ -43,17 +53,25 @@ export const getUserInfo = async (id) => {
  */
 export const getActivities = async (id) => {
   try {
-    // console.log("DATA MOCKED?", isMocked);
-    const response =
-      isMocked === "true"
-        ? {
-            data: {
-              data: USER_ACTIVITY.filter((e) => e.userId === +id)[0],
-            },
-          }
-        : await api.get(`/${id}/activity`);
-    // console.log("response", response.data);
-    return response.data;
+    if (isMocked === "true") {
+      const response = {
+        data: USER_ACTIVITY.filter((e) => e.userId === +id)[0],
+      };
+      return response;
+    } else {
+      const response = await api.get(`/${id}/activity`);
+      return response.data;
+    }
+
+    // // console.log("DATA MOCKED?", isMocked);
+    // const response =
+    //   isMocked === "true"
+    //     ? {
+    //         data: USER_ACTIVITY.filter((e) => e.userId === +id)[0],
+    //       }
+    //     : await api.get(`/${id}/activity`);
+    // // console.log("response", response.data);
+    // return response;
   } catch (error) {
     console.log(error);
   }
@@ -65,17 +83,24 @@ export const getActivities = async (id) => {
  */
 export const getAverageSessions = async (id) => {
   try {
-    // console.log("DATA MOCKED?", isMocked);
-    const response =
-      isMocked === "true"
-        ? {
-            data: {
-              data: USER_AVERAGE_SESSIONS.filter((e) => e.userId === +id)[0],
-            },
-          }
-        : await api.get(`/${id}/average-sessions`);
-    // console.log("response", response.data);
-    return response.data;
+    if (isMocked === "true") {
+      const response = {
+        data: USER_AVERAGE_SESSIONS.filter((e) => e.userId === +id)[0],
+      };
+      return response;
+    } else {
+      const response = await api.get(`/${id}/average-sessions`);
+      return response.data;
+    }
+    // // console.log("DATA MOCKED?", isMocked);
+    // const response =
+    //   isMocked === "true"
+    //     ? {
+    //         data: USER_AVERAGE_SESSIONS.filter((e) => e.userId === +id)[0],
+    //       }
+    //     : await api.get(`/${id}/average-sessions`);
+    // // console.log("response", response.data);
+    // return response;
   } catch (error) {
     console.log(error);
   }
@@ -88,17 +113,25 @@ export const getAverageSessions = async (id) => {
  */
 export const getPerformances = async (id) => {
   try {
-    // console.log("DATA MOCKED?", isMocked);
-    const response =
-      isMocked === "true"
-        ? {
-            data: {
-              data: USER_PERFORMANCE.filter((e) => e.userId === +id)[0],
-            },
-          }
-        : api.get(`/${id}/performance`);
-    console.log("response", response.data);
-    return response.data;
+    if (isMocked === "true") {
+      const response = {
+        data: USER_PERFORMANCE.filter((e) => e.userId === +id)[0],
+      };
+      return response;
+    } else {
+      const response = await api.get(`/${id}/performance`);
+      return response.data;
+    }
+    // // console.log("DATA MOCKED?", isMocked);
+    // const response =
+    //   isMocked === "true"
+    //     ? {
+    //         data: USER_PERFORMANCE.filter((e) => e.userId === +id)[0],
+    //       }
+    //     : api.get(`/${id}/performance`);
+    // // console.log(response);
+    // // console.log(response.data);
+    // return response;
   } catch (error) {
     console.log(error);
   }
