@@ -7,7 +7,7 @@ import {
 } from "../assets/mocked/mockedData";
 
 const isMocked = process.env.REACT_APP_MOCKED_DATA;
-console.log(typeof isMocked);
+console.log(isMocked);
 const api = axios.create({
   baseURL: "http://localhost:3000/user",
 });
@@ -30,7 +30,7 @@ export const getUserInfo = async (id) => {
             },
           }
         : await api.get(`/${id}`);
-
+    // console.log("response", response.data);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -52,6 +52,7 @@ export const getActivities = async (id) => {
             },
           }
         : await api.get(`/${id}/activity`);
+    // console.log("response", response.data);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -73,6 +74,7 @@ export const getAverageSessions = async (id) => {
             },
           }
         : await api.get(`/${id}/average-sessions`);
+    // console.log("response", response.data);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -95,6 +97,7 @@ export const getPerformances = async (id) => {
             },
           }
         : api.get(`/${id}/performance`);
+    console.log("response", response.data);
     return response.data;
   } catch (error) {
     console.log(error);

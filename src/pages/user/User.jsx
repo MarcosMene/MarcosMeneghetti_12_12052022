@@ -54,6 +54,7 @@ const User = () => {
         if (!response) {
           return <div className="user">Identifiant non reconnu</div>;
         }
+        // console.log(response.data);
         setData(response.data);
         setDataLoding(true);
       } catch (error) {
@@ -84,7 +85,7 @@ const User = () => {
         for (let i = 0; i < response.data.sessions.length; i++) {
           response.data.sessions[i].day = i + 1;
         }
-
+        // console.log(response);
         setDataActivity(response.data);
         setDataLodingActivity(true);
       } catch (error) {
@@ -117,7 +118,7 @@ const User = () => {
          *@param {number} id
          *@returns {Array}
          */
-
+        console.log(response.data.data);
         const DataRadarFrench = response.data.data.map((data) => {
           switch (data.kind) {
             case 1:
@@ -168,7 +169,7 @@ const User = () => {
          *@param {number} id
          *@returns {Array}
          */
-
+        console.log(response.data.sessions);
         //change format day 1 to letters Monday to Sunday
         const WeekLetters = response.data.sessions.map((data) => {
           switch (data.day) {
