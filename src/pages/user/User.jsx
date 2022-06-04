@@ -54,17 +54,12 @@ const User = () => {
         if (!response) {
           return <div className="user">Identifiant non reconnu</div>;
         }
-        console.log(response);
-        console.log(response.data);
+
         setData(response.data);
         setDataLoding(true);
       } catch (error) {
         setDataError(true);
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        } else {
           console.log(`Error: ${error.message}`);
         }
       }
@@ -86,16 +81,12 @@ const User = () => {
         for (let i = 0; i < response.data.sessions.length; i++) {
           response.data.sessions[i].day = i + 1;
         }
-        // console.log(response);
+
         setDataActivity(response.data);
         setDataLodingActivity(true);
       } catch (error) {
         setDataErrorActivity(true);
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        } else {
           console.log(`Error: ${error.message}`);
         }
       }
@@ -119,7 +110,7 @@ const User = () => {
          *@param {number} id
          *@returns {Array}
          */
-        // console.log(response.data.data);
+
         const DataRadarFrench = response.data.data.map((data) => {
           switch (data.kind) {
             case 1:
@@ -144,10 +135,6 @@ const User = () => {
       } catch (error) {
         setDataErrorPerformance(true);
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        } else {
           console.log(`Error: ${error.message}`);
         }
       }
@@ -170,7 +157,7 @@ const User = () => {
          *@param {number} id
          *@returns {Array}
          */
-        // console.log(response.data.sessions);
+
         //change format day 1 to letters Monday to Sunday
         const WeekLetters = response.data.sessions.map((data) => {
           switch (data.day) {
@@ -197,10 +184,6 @@ const User = () => {
       } catch (error) {
         setDataErrorSession(true);
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        } else {
           console.log(`Error: ${error.message}`);
         }
       }

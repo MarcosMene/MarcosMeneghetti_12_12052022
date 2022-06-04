@@ -7,7 +7,10 @@ import {
 } from "../assets/mocked/mockedData";
 
 const isMocked = process.env.REACT_APP_MOCKED_DATA;
-console.log(isMocked);
+
+//show if data mocked is true or false
+console.log("Mocked =>", isMocked);
+
 const api = axios.create({
   baseURL: "http://localhost:3000/user",
 });
@@ -24,8 +27,10 @@ export const getUserInfo = async (id) => {
       const response = {
         data: USER_MAIN_DATA.filter((e) => e.id === +id)[0],
       };
+      console.log("Mocked");
       return response;
     } else {
+      console.log("API");
       const response = await api.get(`/${id}`);
       return response.data;
     }
@@ -57,8 +62,10 @@ export const getActivities = async (id) => {
       const response = {
         data: USER_ACTIVITY.filter((e) => e.userId === +id)[0],
       };
+      console.log("Mocked");
       return response;
     } else {
+      console.log("API");
       const response = await api.get(`/${id}/activity`);
       return response.data;
     }
@@ -87,8 +94,10 @@ export const getAverageSessions = async (id) => {
       const response = {
         data: USER_AVERAGE_SESSIONS.filter((e) => e.userId === +id)[0],
       };
+      console.log("Mocked");
       return response;
     } else {
+      console.log("API");
       const response = await api.get(`/${id}/average-sessions`);
       return response.data;
     }
@@ -117,8 +126,10 @@ export const getPerformances = async (id) => {
       const response = {
         data: USER_PERFORMANCE.filter((e) => e.userId === +id)[0],
       };
+      console.log("Mocked");
       return response;
     } else {
+      console.log("API");
       const response = await api.get(`/${id}/performance`);
       return response.data;
     }
