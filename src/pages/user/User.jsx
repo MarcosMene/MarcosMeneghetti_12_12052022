@@ -28,6 +28,7 @@ const User = () => {
   const [data, setData] = useState({});
   const [dataLoading, setDataLoding] = useState(false);
   const [dataError, setDataError] = useState(false);
+  const [dataMessage, setDataMessage] = useState("Identifiant non reconnu");
 
   //user activities for the dashboard
   const [dataActivity, setDataActivity] = useState({});
@@ -51,8 +52,10 @@ const User = () => {
     const getData = async () => {
       try {
         const response = await getUserInfo(id);
-        if (!response) {
-          return <div className="user">Identifiant non reconnu</div>;
+
+        if (response === undefined) {
+          setDataMessage("Internet non disponible. Erreur 500.");
+          return <div className="user">{dataMessage}</div>;
         }
 
         setData(response.data);
@@ -60,7 +63,7 @@ const User = () => {
       } catch (error) {
         setDataError(true);
         if (error.response) {
-          console.log(`Error: ${error.message}`);
+          setDataMessage(error.message);
         }
       }
     };
@@ -74,9 +77,10 @@ const User = () => {
     const getActivity = async () => {
       try {
         const response = await getActivities(id);
-        if (!response) {
-          return <div className="page404">Identifiant non reconnu</div>;
+        if (response === undefined) {
+          return <div className="user">{dataMessage}</div>;
         }
+
         //change format date yyyy-mm-dd from data to number 1 to 7
         for (let i = 0; i < response.data.sessions.length; i++) {
           response.data.sessions[i].day = i + 1;
@@ -87,7 +91,7 @@ const User = () => {
       } catch (error) {
         setDataErrorActivity(true);
         if (error.response) {
-          console.log(`Error: ${error.message}`);
+          setDataMessage(error.message);
         }
       }
     };
@@ -101,8 +105,8 @@ const User = () => {
       try {
         const response = await getPerformances(id);
 
-        if (!response) {
-          return <div className="page404">Identifiant non reconnu</div>;
+        if (response === undefined) {
+          return <div className="user">{dataMessage}</div>;
         }
 
         /**
@@ -135,7 +139,7 @@ const User = () => {
       } catch (error) {
         setDataErrorPerformance(true);
         if (error.response) {
-          console.log(`Error: ${error.message}`);
+          setDataMessage(error.message);
         }
       }
     };
@@ -149,9 +153,10 @@ const User = () => {
     const getSession = async () => {
       try {
         const response = await getAverageSessions(id);
-        if (!response) {
-          return <div className="page404">Identifiant non reconnu</div>;
+        if (response === undefined) {
+          return <div className="user">{dataMessage}</div>;
         }
+
         /**
          * @name WeekLetters
          *@param {number} id
@@ -184,7 +189,7 @@ const User = () => {
       } catch (error) {
         setDataErrorSession(true);
         if (error.response) {
-          console.log(`Error: ${error.message}`);
+          setDataMessage(error.message);
         }
       }
     };
@@ -192,7 +197,7 @@ const User = () => {
     getActivity();
     getPerformance();
     getSession();
-  }, [id]);
+  }, [dataMessage, id]);
 
   //user not found message
   if (
@@ -201,20 +206,7 @@ const User = () => {
     !dataLoadingPerformance ||
     !dataLoadingSession
   ) {
-    return <Error />;
-  }
-  //
-  if (
-    dataError ||
-    dataErrorActivity ||
-    dataErrorPerformance ||
-    dataErrorSession
-  ) {
-    return (
-      <>
-        <Page404 />
-      </>
-    );
+    return <Error error={dataMessage} />;
   }
 
   return (

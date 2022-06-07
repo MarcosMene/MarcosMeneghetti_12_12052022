@@ -27,12 +27,16 @@ export const getUserInfo = async (id) => {
       const response = {
         data: USER_MAIN_DATA.filter((e) => e.id === +id)[0],
       };
-      console.log("Mocked");
+      // console.log("Mocked");
       return response;
     } else {
-      console.log("API");
+      // console.log("API");
       const response = await api.get(`/${id}`);
-      return response.data;
+      if (response.status === 200) {
+        return response.data;
+      } else {
+        return null;
+      }
     }
 
     // // console.log(isMocked);
@@ -62,12 +66,15 @@ export const getActivities = async (id) => {
       const response = {
         data: USER_ACTIVITY.filter((e) => e.userId === +id)[0],
       };
-      console.log("Mocked");
+
       return response;
     } else {
-      console.log("API");
       const response = await api.get(`/${id}/activity`);
-      return response.data;
+      if (response.status === 200) {
+        return response.data;
+      } else {
+        return null;
+      }
     }
 
     // // console.log("DATA MOCKED?", isMocked);
@@ -94,12 +101,15 @@ export const getAverageSessions = async (id) => {
       const response = {
         data: USER_AVERAGE_SESSIONS.filter((e) => e.userId === +id)[0],
       };
-      console.log("Mocked");
+
       return response;
     } else {
-      console.log("API");
       const response = await api.get(`/${id}/average-sessions`);
-      return response.data;
+      if (response.status === 200) {
+        return response.data;
+      } else {
+        return null;
+      }
     }
     // // console.log("DATA MOCKED?", isMocked);
     // const response =
@@ -126,12 +136,15 @@ export const getPerformances = async (id) => {
       const response = {
         data: USER_PERFORMANCE.filter((e) => e.userId === +id)[0],
       };
-      console.log("Mocked");
+
       return response;
     } else {
-      console.log("API");
       const response = await api.get(`/${id}/performance`);
-      return response.data;
+      if (response.status === 200) {
+        return response.data;
+      } else {
+        return null;
+      }
     }
     // // console.log("DATA MOCKED?", isMocked);
     // const response =
