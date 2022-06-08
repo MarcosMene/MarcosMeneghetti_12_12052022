@@ -28,14 +28,20 @@ const Performance = ({ performances }) => {
         width="100%"
         height="100%"
       >
-        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={performances}>
+        <RadarChart
+          cx="50%"
+          cy="50%"
+          outerRadius="80%"
+          data={performances}
+          margin={{ top: 30, bottom: 30, left: 38, right: 38 }}
+        >
           <PolarGrid radialLines={false} />
           <PolarAngleAxis
             dataKey="kind"
             tickline={false}
             stroke="#fff"
-            cx="50%"
-            cy="50%"
+            // cx="50%"
+            // cy="50%"
             tick={(props) => renderPolarAngleAxis(props)}
           />
 
@@ -65,8 +71,8 @@ function renderPolarAngleAxis({ payload, x, y, cx, cy }) {
   return (
     <Text
       verticalAnchor="middle"
-      y={y + (y - cy) / 9}
-      x={x + (x - (cx + 120)) / 5}
+      y={y + (y - cy) / 8}
+      x={x + (x - (cx + 60)) / 2.5}
       style={{ fill: "rgba(255, 255, 255)" }}
     >
       {payload.value}

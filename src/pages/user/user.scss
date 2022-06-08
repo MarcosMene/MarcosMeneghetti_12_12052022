@@ -1,5 +1,5 @@
 .user {
-    margin-left: 120px;
+    margin-left: auto;
     width: 100%;
     padding: 10px 50px;
     display: flex;
@@ -23,9 +23,9 @@
     justify-content: space-between;
     gap: 20px;
 
-    @media (max-width: 110rem) {
-        flex-direction: column;
-    }
+    // @media (max-width: 110rem) {
+    //     flex-direction: column;
+    // }
 
     .db-graphics {
         flex: 3;

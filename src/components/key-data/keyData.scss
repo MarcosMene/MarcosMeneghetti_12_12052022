@@ -7,12 +7,12 @@
     flex-direction: column;
     background-color: #fff;
 
-    @media (max-width: 110rem) {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 0;
-        margin-top: 20px;
-    }
+    // @media (max-width: 110rem) {
+    //     flex-direction: row;
+    //     justify-content: space-between;
+    //     padding: 0;
+    //     margin-top: 20px;
+    // }
 
     .db-key-info {
         display: flex;
@@ -24,10 +24,10 @@
         background-color: #f5f4f4;
         border-radius: 5px;
 
-        @media (max-width: 110rem) {
-            padding: 0;
-            width: 24%;
-        }
+        // @media (max-width: 110rem) {
+        //     padding: 0;
+        //     width: 24%;
+        // }
     }
 
     .db-key-img {
