@@ -20,30 +20,26 @@ import Performance from "../../components/performance/Performance";
 import Score from "../../components/score/Score";
 import KeyData from "../../components/key-data/KeyData";
 import Title from "../../components/title/Title";
-import Page404 from "../page404/Page404";
 import Error from "../error/Error";
 
 const User = () => {
   //User data for the dashboard
   const [data, setData] = useState({});
   const [dataLoading, setDataLoding] = useState(false);
-  const [dataError, setDataError] = useState(false);
-  const [dataMessage, setDataMessage] = useState("Identifiant non reconnu");
+
+  const [dataMessage, setDataMessage] = useState("");
 
   //user activities for the dashboard
   const [dataActivity, setDataActivity] = useState({});
   const [dataLoadingActivity, setDataLodingActivity] = useState(false);
-  const [dataErrorActivity, setDataErrorActivity] = useState(false);
 
   //user perfomance for the dashboard
   const [dataPerformance, setDataPerformance] = useState({});
   const [dataLoadingPerformance, setDataLodingPerformance] = useState(false);
-  const [dataErrorPerformance, setDataErrorPerformance] = useState(false);
 
   //user session for the dashboard
   const [dataSession, setDataSession] = useState({});
   const [dataLoadingSession, setDataLodingSession] = useState(false);
-  const [dataErrorSession, setDataErrorSession] = useState(false);
 
   //get id from URL
   const { id } = useParams();
@@ -53,15 +49,13 @@ const User = () => {
       try {
         const response = await getUserInfo(id);
 
-        if (response === undefined) {
-          setDataMessage("Internet non disponible. Erreur 500.");
-          return <div className="user">{dataMessage}</div>;
-        }
+        response === null
+          ? setDataMessage("Connexion internet non disponible.")
+          : setDataMessage("Identifiant non reconnu");
 
         setData(response.data);
         setDataLoding(true);
       } catch (error) {
-        setDataError(true);
         if (error.response) {
           setDataMessage(error.message);
         }
@@ -89,7 +83,6 @@ const User = () => {
         setDataActivity(response.data);
         setDataLodingActivity(true);
       } catch (error) {
-        setDataErrorActivity(true);
         if (error.response) {
           setDataMessage(error.message);
         }
@@ -137,7 +130,6 @@ const User = () => {
         setDataPerformance(DataRadarFrench.reverse());
         setDataLodingPerformance(true);
       } catch (error) {
-        setDataErrorPerformance(true);
         if (error.response) {
           setDataMessage(error.message);
         }
@@ -187,7 +179,6 @@ const User = () => {
         setDataSession(WeekLetters);
         setDataLodingSession(true);
       } catch (error) {
-        setDataErrorSession(true);
         if (error.response) {
           setDataMessage(error.message);
         }

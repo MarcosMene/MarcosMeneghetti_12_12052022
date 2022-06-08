@@ -32,27 +32,15 @@ export const getUserInfo = async (id) => {
     } else {
       // console.log("API");
       const response = await api.get(`/${id}`);
-      if (response.status === 200) {
-        return response.data;
-      } else {
-        return null;
-      }
+      return response.data;
     }
-
-    // // console.log(isMocked);
-    // // console.log("DATA MOCKED?", isMocked);
-    // const response =
-    //   isMocked === "true"
-    //     ? {
-    //         data: USER_MAIN_DATA.filter((e) => e.id === +id)[0],
-    //       }
-    //     : await api.get(`/${id}`);
-    // console.log("response=>", response);
-    // console.log("response=>", response.data);
-    // console.log("response=>", response.data.data);
-    // return response;
   } catch (error) {
-    console.log(error);
+    if (error.message === "Network Error") {
+      return null;
+    }
+    // console.log(error);
+    // console.log(error.message);
+    // console.log(error.code);
   }
 };
 
@@ -70,24 +58,14 @@ export const getActivities = async (id) => {
       return response;
     } else {
       const response = await api.get(`/${id}/activity`);
-      if (response.status === 200) {
-        return response.data;
-      } else {
-        return null;
-      }
-    }
 
-    // // console.log("DATA MOCKED?", isMocked);
-    // const response =
-    //   isMocked === "true"
-    //     ? {
-    //         data: USER_ACTIVITY.filter((e) => e.userId === +id)[0],
-    //       }
-    //     : await api.get(`/${id}/activity`);
-    // // console.log("response", response.data);
-    // return response;
+      return response.data;
+    }
   } catch (error) {
-    console.log(error);
+    // if (error.message === "Network Error") {
+    //   return null;
+    // }
+    console.log("Network Error");
   }
 };
 
@@ -105,23 +83,14 @@ export const getAverageSessions = async (id) => {
       return response;
     } else {
       const response = await api.get(`/${id}/average-sessions`);
-      if (response.status === 200) {
-        return response.data;
-      } else {
-        return null;
-      }
+
+      return response.data;
     }
-    // // console.log("DATA MOCKED?", isMocked);
-    // const response =
-    //   isMocked === "true"
-    //     ? {
-    //         data: USER_AVERAGE_SESSIONS.filter((e) => e.userId === +id)[0],
-    //       }
-    //     : await api.get(`/${id}/average-sessions`);
-    // // console.log("response", response.data);
-    // return response;
   } catch (error) {
-    console.log(error);
+    // if (error.message === "Network Error") {
+    //   return null;
+    // }
+    console.log("Network Error");
   }
 };
 
@@ -140,23 +109,13 @@ export const getPerformances = async (id) => {
       return response;
     } else {
       const response = await api.get(`/${id}/performance`);
-      if (response.status === 200) {
-        return response.data;
-      } else {
-        return null;
-      }
+
+      return response.data;
     }
-    // // console.log("DATA MOCKED?", isMocked);
-    // const response =
-    //   isMocked === "true"
-    //     ? {
-    //         data: USER_PERFORMANCE.filter((e) => e.userId === +id)[0],
-    //       }
-    //     : api.get(`/${id}/performance`);
-    // // console.log(response);
-    // // console.log(response.data);
-    // return response;
   } catch (error) {
-    console.log(error);
+    // if (error.message === "Network Error") {
+    //   return null;
+    // }
+    console.log("Network Error");
   }
 };
