@@ -37,6 +37,10 @@
         align-items: center;
         justify-content: center;
         margin-right: 10px;
+
+        @media (max-width: 110rem) {
+            padding: 10px;
+        }
     }
 
     .db-key-text {

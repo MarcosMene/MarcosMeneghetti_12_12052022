@@ -9,6 +9,13 @@ import {
   getAverageSessions,
 } from "../../Services/ApiCall";
 
+import {
+  userDataModel,
+  userDataActivityModel,
+  userDataPerformanceModel,
+  userDataAverangeSessiosModel,
+} from "../../Services/UserDataModel";
+
 import proteines from "../../assets/proteines.svg";
 import glucides from "../../assets/apple.svg";
 import lipides from "../../assets/cheeseburger.svg";
@@ -53,7 +60,9 @@ const User = () => {
           ? setDataMessage("Connexion internet non disponible.")
           : setDataMessage("Identifiant non reconnu");
 
-        setData(response.data);
+        const formattedUserData = new userDataModel(response.data);
+
+        setData(formattedUserData);
         setDataLoding(true);
       } catch (error) {
         if (error.response) {
@@ -71,16 +80,15 @@ const User = () => {
     const getActivity = async () => {
       try {
         const response = await getActivities(id);
-        if (response === undefined) {
-          return <div className="user">{dataMessage}</div>;
-        }
+        // if (response === undefined) {
+        //   return <div className="user">{dataMessage}</div>;
+        // }
 
-        //change format date yyyy-mm-dd from data to number 1 to 7
-        for (let i = 0; i < response.data.sessions.length; i++) {
-          response.data.sessions[i].day = i + 1;
-        }
+        const formattedUserDataActivity = new userDataActivityModel(
+          response.data
+        );
 
-        setDataActivity(response.data);
+        setDataActivity(formattedUserDataActivity);
         setDataLodingActivity(true);
       } catch (error) {
         if (error.response) {
@@ -98,6 +106,10 @@ const User = () => {
       try {
         const response = await getPerformances(id);
 
+        const formattedUserDataPerformance = new userDataPerformanceModel(
+          response.data
+        );
+
         if (response === undefined) {
           return <div className="user">{dataMessage}</div>;
         }
@@ -108,24 +120,26 @@ const User = () => {
          *@returns {Array}
          */
 
-        const DataRadarFrench = response.data.data.map((data) => {
-          switch (data.kind) {
-            case 1:
-              return { ...data, kind: "Cardio" };
-            case 2:
-              return { ...data, kind: "Energie" };
-            case 3:
-              return { ...data, kind: "Endurance" };
-            case 4:
-              return { ...data, kind: "Force" };
-            case 5:
-              return { ...data, kind: "Vitesse" };
-            case 6:
-              return { ...data, kind: "Intensité" };
-            default:
-              return { ...data };
+        const DataRadarFrench = formattedUserDataPerformance.data.map(
+          (data) => {
+            switch (data.kind) {
+              case 1:
+                return { ...data, kind: "Cardio" };
+              case 2:
+                return { ...data, kind: "Energie" };
+              case 3:
+                return { ...data, kind: "Endurance" };
+              case 4:
+                return { ...data, kind: "Force" };
+              case 5:
+                return { ...data, kind: "Vitesse" };
+              case 6:
+                return { ...data, kind: "Intensité" };
+              default:
+                return { ...data };
+            }
           }
-        });
+        );
 
         setDataPerformance(DataRadarFrench.reverse());
         setDataLodingPerformance(true);
@@ -145,9 +159,13 @@ const User = () => {
     const getSession = async () => {
       try {
         const response = await getAverageSessions(id);
-        if (response === undefined) {
-          return <div className="user">{dataMessage}</div>;
-        }
+
+        const formattedUserDataAverageSessions =
+          new userDataAverangeSessiosModel(response.data);
+
+        // if (response === undefined) {
+        //   return <div className="user">{dataMessage}</div>;
+        // }
 
         /**
          * @name WeekLetters
@@ -156,26 +174,28 @@ const User = () => {
          */
 
         //change format day 1 to letters Monday to Sunday
-        const WeekLetters = response.data.sessions.map((data) => {
-          switch (data.day) {
-            case 1:
-              return { ...data, day: "L" };
-            case 2:
-              return { ...data, day: "M" };
-            case 3:
-              return { ...data, day: "M" };
-            case 4:
-              return { ...data, day: "J" };
-            case 5:
-              return { ...data, day: "V" };
-            case 6:
-              return { ...data, day: "S" };
-            case 7:
-              return { ...data, day: "D" };
-            default:
-              return { ...data };
+        const WeekLetters = formattedUserDataAverageSessions.sessions.map(
+          (data) => {
+            switch (data.day) {
+              case 1:
+                return { ...data, day: "L" };
+              case 2:
+                return { ...data, day: "M" };
+              case 3:
+                return { ...data, day: "M" };
+              case 4:
+                return { ...data, day: "J" };
+              case 5:
+                return { ...data, day: "V" };
+              case 6:
+                return { ...data, day: "S" };
+              case 7:
+                return { ...data, day: "D" };
+              default:
+                return { ...data };
+            }
           }
-        });
+        );
         setDataSession(WeekLetters);
         setDataLodingSession(true);
       } catch (error) {

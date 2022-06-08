@@ -65,8 +65,8 @@ function renderPolarAngleAxis({ payload, x, y, cx, cy }) {
   return (
     <Text
       verticalAnchor="middle"
-      y={y + (y - cy) / 7}
-      x={x + (x - (cx + 60)) / 2.5}
+      y={y + (y - cy) / 9}
+      x={x + (x - (cx + 120)) / 5}
       style={{ fill: "rgba(255, 255, 255)" }}
     >
       {payload.value}

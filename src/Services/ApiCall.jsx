@@ -35,7 +35,7 @@ export const getUserInfo = async (id) => {
       return response.data;
     }
   } catch (error) {
-    if (error.message === "Network Error") {
+    if (error.code === "ERR_NETWORK") {
       return null;
     }
     // console.log(error);
@@ -65,7 +65,7 @@ export const getActivities = async (id) => {
     // if (error.message === "Network Error") {
     //   return null;
     // }
-    console.log("Network Error");
+    console.log(error);
   }
 };
 
@@ -90,7 +90,7 @@ export const getAverageSessions = async (id) => {
     // if (error.message === "Network Error") {
     //   return null;
     // }
-    console.log("Network Error");
+    console.log(error);
   }
 };
 
@@ -116,6 +116,6 @@ export const getPerformances = async (id) => {
     // if (error.message === "Network Error") {
     //   return null;
     // }
-    console.log("Network Error");
+    console.log(error);
   }
 };
