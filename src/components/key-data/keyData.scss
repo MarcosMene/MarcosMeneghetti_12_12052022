@@ -7,11 +7,12 @@
     flex-direction: column;
     background-color: #fff;
 
-    @media (max-width: 90rem) {
+    @media (max-width: 85rem) {
         flex-direction: row;
         justify-content: space-between;
-        padding: 0;
+
         margin-top: 20px;
+        margin-bottom: 40px;
     }
 
     .db-key-info {
@@ -24,7 +25,7 @@
         background-color: #f5f4f4;
         border-radius: 5px;
 
-        @media (max-width: 90rem) {
+        @media (max-width: 85rem) {
             padding: 0;
             width: 24%;
         }
@@ -38,8 +39,9 @@
         justify-content: center;
         margin-right: 10px;
 
-        @media (max-width: 90rem) {
+        @media (max-width: 85rem) {
             padding: 10px;
+
         }
     }
 

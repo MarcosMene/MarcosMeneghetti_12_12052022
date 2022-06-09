@@ -28,6 +28,10 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
-    margin: auto;
+    width: 92%;
+    margin-left: 80px;
+
+    @media (max-width: 85rem) {
+        width: 85%;
+    }
 }

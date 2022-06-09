@@ -1,13 +1,13 @@
 .user {
-    margin-left: auto;
+    margin-left: 100px;
     width: 100%;
-    padding: 10px 50px;
+    // padding: 0px 0px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
     min-height: calc(100vh - 90px);
-    padding-top: 40px;
+    padding-top: 30px;
     position: relative;
 }
 
@@ -23,7 +23,7 @@
     justify-content: space-between;
     gap: 20px;
 
-    @media (max-width: 90rem) {
+    @media (max-width: 85rem) {
         flex-direction: column;
     }
 
