@@ -31,9 +31,9 @@ const Performance = ({ performances }) => {
         <RadarChart
           cx="50%"
           cy="50%"
-          outerRadius="80%"
+          outerRadius="100%"
           data={performances}
-          margin={{ top: 30, bottom: 30, left: 38, right: 38 }}
+          margin={{ top: 25, bottom: 25, left: 45, right: 45 }}
         >
           <PolarGrid radialLines={false} />
           <PolarAngleAxis

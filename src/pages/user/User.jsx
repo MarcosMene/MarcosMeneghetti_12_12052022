@@ -61,7 +61,7 @@ const User = () => {
           : setDataMessage("Identifiant non reconnu");
 
         const formattedUserData = new userDataModel(response.data);
-
+        console.log(formattedUserData);
         setData(formattedUserData);
         setDataLoding(true);
       } catch (error) {
@@ -109,7 +109,7 @@ const User = () => {
         const formattedUserDataPerformance = new userDataPerformanceModel(
           response.data
         );
-
+        console.log(formattedUserDataPerformance);
         if (response === undefined) {
           return <div className="user">{dataMessage}</div>;
         }
@@ -238,11 +238,7 @@ const User = () => {
               <Performance performances={dataPerformance} />
             </div>
             <div className="db-chart">
-              <Score
-                score={
-                  data.todayScore ? data.todayScore * 100 : data.score * 100
-                }
-              />
+              <Score score={data.todayScore * 100} />
             </div>
           </div>
         </div>
