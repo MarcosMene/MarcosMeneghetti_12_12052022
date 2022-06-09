@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/key-data/KeyData.jsx</title>
+    <title>JSDoc: Class: userDataActivityModel</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,59 +17,211 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/key-data/KeyData.jsx</h1>
+    <h1 class="page-title">Class: userDataActivityModel</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
-import PropTypes from "prop-types";
-import "./keyData.scss";
-/**
- *@name KeyData
- * @description create key-data component for the dashboard.It has 3 values: background-color, typekey and valueKey;
- *
- * @param {string} imgElement is the image element
- * @param {string} backColor is the background color of element
- * @param {string} typeKey is the type of element
- * @param {number} valueKey is the value key of element
- *
- * @returns {JSX.Element}
- *
- */
-const KeyData = ({ imgElement, backColor, typeKey, valueKey }) => {
-  return (
-    &lt;div className="db-key-info">
-      &lt;div className="db-key-img" style={{ backgroundColor: backColor }}>
-        &lt;img src={imgElement} alt={typeKey} />
-      &lt;/div>
-      &lt;div className="db-key-text">
-        &lt;h2 className="db-key-title">
-          {valueKey.toLocaleString("en-US")} {/* format number */}
-          {typeKey === "Calories" ? &lt;span>Kcal&lt;/span> : &lt;span>g&lt;/span>}
-        &lt;/h2>
-        &lt;p className="db-key-type">{typeKey}&lt;/p>
-      &lt;/div>
-    &lt;/div>
-  );
-};
+        <h2><span class="attribs"><span class="type-signature"></span></span>userDataActivityModel<span class="signature">(data)</span><span class="type-signature"> &rarr; {Object}</span></h2>
+        
+    
+</header>
 
-//proptypes for keyData
-KeyData.propTypes = {
-  imgElement: PropTypes.string,
-  backColor: PropTypes.string,
-  valueKey: PropTypes.number,
-  typeKey: PropTypes.string,
-};
+<article>
+    <div class="container-overview">
+    
+        
 
-export default KeyData;
-</code></pre>
-        </article>
-    </section>
+    
+
+    
+    <h4 class="name" id="userDataActivityModel"><span class="type-signature"></span>new userDataActivityModel<span class="signature">(data)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Create a class model to user activity to call API</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Services_UserDataModel.jsx.html">Services/UserDataModel.jsx</a>, <a href="Services_UserDataModel.jsx.html#line26">line 26</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="userDataActivityModel.html">userDataActivityModel</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

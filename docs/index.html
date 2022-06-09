@@ -43,8 +43,9 @@
 
 
     <section>
-        <article><h1>Projet 12 - SportSee - OpenClassrooms</h1>
-<p>SportSee is a project to create a page for sport coaching. The user can follow all informations about his/her sessions of coaching as well as the number of calories burned.</p>
+        <article>  <img src="../src/assets/logo.png" width="100" />  
+<h1>Projet 12 - SportSee - OpenClassrooms</h1>
+<p>SportSee is a project to create a dashboard page for sport coaching. The user can follow all informations about his/her sessions of coaching as well as the number of calories burned.</p>
 <h5>Project realized by Marcos Meneghetti</h5>
 <hr>
 <h2>Prerequisites</h2>
@@ -55,8 +56,8 @@
 <hr>
 <h2>Dependencies</h2>
 <ul>
-<li>React (v 18.1.0)</li>
-<li>React-dom (v 18.1.0)</li>
+<li>React (v 17.0.0)</li>
+<li>React-dom (v 17.0.0)</li>
 <li>React-router-dom (v 6.3.0)</li>
 <li>Axios (v 0.27.2)</li>
 <li>Prop-types (v 15.8.1)</li>
@@ -68,20 +69,34 @@
 <p><img src="https://img.shields.io/static/v1?label=Language&amp;message=JS&amp;color=red&amp;style=for-the-badge&amp;logo=javascript" alt="Language - JS"> <img src="https://img.shields.io/static/v1?label=Framework&amp;message=React&amp;color=green&amp;style=for-the-badge&amp;logo=react" alt="Framework - React"> <img src="https://img.shields.io/static/v1?label=Style&amp;message=SASS&amp;color=orange&amp;style=for-the-badge&amp;logo=sass" alt="Style - SASS"> <img src="https://img.shields.io/static/v1?label=Library&amp;message=Recharts&amp;color=blue&amp;style=for-the-badge" alt="Library - Recharts"> <img src="https://img.shields.io/static/v1?label=Code+Editor&amp;message=VS+Studio+Code&amp;color=yellow&amp;style=for-the-badge&amp;logo=Visual+Studio+Code" alt="Code Editor - VS Studio Code"> <img src="https://img.shields.io/static/v1?label=Node&amp;message=V16.15.0&amp;color=brown&amp;style=for-the-badge&amp;logo=Node" alt="Node - V16.15.0"> <img src="https://img.shields.io/static/v1?label=HTTP+Client&amp;message=Axios&amp;color=purple&amp;style=for-the-badge" alt="HTTP Client - Axios"> <img src="https://img.shields.io/static/v1?label=API+documentation&amp;message=JSDoc&amp;color=pink&amp;style=for-the-badge" alt="API documentation - JSDoc"></p>
 <hr>
 <h2>How to install</h2>
-<h6>Create a main directory</h6>
 <ul>
-<li>Clone the project <a href="https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard">P9-front-end-dashboard</a> from Github into your computer. This repo contains all the source code to run the micro API for the sports analytics dashboard SportSee.</li>
+<li>
+<p>Create a main directory</p>
+</li>
+<li>
+<p>Clone the project <a href="https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard">P9-front-end-dashboard</a> from Github into your computer. This repo contains all the source code to run the micro API for the sports analytics dashboard SportSee.</p>
+</li>
 </ul>
 <h6>In the terminal Visual Studio Code editor</h6>
 <ul>
-<li>change the directory -&gt; <code>cd P9-front-end-dashboard</code></li>
-<li><code>yarn</code> command will allow you to install the dependencies.</li>
-<li><code>yarn dev</code> command will allow you to run the micro API.</li>
-<li>It will run on the port -&gt; http://localhost:3000</li>
-<li>Don't close the terminal.</li>
-</ul>
-<h6>Open new terminal</h6>
-<ul>
+<li>
+<p>change the directory -&gt; <code>cd P9-front-end-dashboard</code></p>
+</li>
+<li>
+<p><code>yarn</code> command will allow you to install the dependencies.</p>
+</li>
+<li>
+<p><code>yarn dev</code> command will allow you to run the micro API.</p>
+</li>
+<li>
+<p>It will run on the port -&gt; http://localhost:3000</p>
+</li>
+<li>
+<p><strong>Don't close the terminal.</strong></p>
+</li>
+<li>
+<p>Open new terminal</p>
+</li>
 <li>
 <p>Clone my project <a href="https://github.com/MarcosMene/MarcosMeneghetti_12_12052022.git">Marcos Meneghetti - P12</a></p>
 </li>
@@ -92,26 +107,68 @@
 <p><code>yarn</code> command will allow you to install the dependencies.</p>
 </li>
 <li>
-<p><code>yarn run start</code> command will allow you start the project.</p>
+<p><code>yarn start</code> command will allow you start the project.</p>
+</li>
+<li>
+<p><strong>Don't close the terminal.</strong></p>
 </li>
 </ul>
-<p><strong>A message appears:</strong> Something is already running on port 3000. Would you like to run the app on another port instead? (Y/N)</p>
-<p>Type <strong>Y</strong> to answer yes</p>
-<p>It will lunch the React app on the new port -&gt; http://localhost:3001</p>
+<p>It will lunch the React app on the new port -&gt; http://localhost:3005</p>
 <hr>
 <h6>The URLs</h6>
 <p>These are the only url availables to this project:</p>
-<p><strong>http://localhost:3001/user/12</strong></p>
-<p><strong>http://localhost:3001/user/18</strong></p>
+<p><strong>http://localhost:3005/user/12</strong></p>
+<p><strong>http://localhost:3005/user/18</strong></p>
+<p>If you change to another number diffent of 12 or 18, you will receive a error message like user not found in french.</p>
+<hr>
+<h6>Change from mock to API</h6>
+<p>The file .env on the root is where you will change from mock data to API data or vice-versa.
+If you want to test <em>mock</em> data, <strong>REACT_APP_MOCKED_DATA=true</strong>.
+If you want to change to <em>API</em> data, <strong>REACT_APP_MOCKED_DATA=false</strong>.</p>
+<p><strong>Everytime you change to true or false, you need to restart the application.</strong></p>
+<ul>
+<li>To mock data</li>
+</ul>
+<pre class="prettyprint source"><code>- Change the .env file to REACT_APP_MOCKED_DATA=true and save it.
+
+- In the terminal (bash of MarcosMeneghetti_12_12052022), ctrl-c to stop the application.
+
+- Restart the application with 'yarn start'.
+
+- If you ctrl-c to stop the backend (terminal bash of p9-front-end-dashboar),
+everything must work, because your data came from mockdata.
+</code></pre>
+<ul>
+<li>To API data</li>
+</ul>
+<pre class="prettyprint source"><code>- Change the .env file to REACT_APP_MOCKED_DATA=false and save it.
+
+- In the terminal (bash of MarcosMeneghetti_12_12052022), ctrl-c to stop the application.
+
+- Restart the application with 'yarn start'.
+
+- Now the application will works with API data.
+
+- If you ctrl-c to stop the backend (terminal bash of p9-front-end-dashboar),
+you will receive a error message in french like internet was interrupted, because now
+you don't have access to the API data.
+
+-If you want to get access to API data again, on the terminal (bash of p9-front-end-dashboar),
+restart the API data with 'yarn dev'.
+</code></pre>
+<hr>
+<h6>Navigation</h6>
+<p>The application will start with Karl and Cecilia avatars. Chose one of them to see his/her dashboard informations.
+To come back to home page, on the top menu, click on 'Accueil'.</p>
 <hr>
 <h6>JSdoc</h6>
 <ul>
-<li>Install <code>Live Server</code> VS Code extension.
-You can run the JSDoc documentation in the folder <code>docs</code> by running this command on the terminal:
-<code>yarn docs</code>
-If you open docs folder (inside MarcosMeneghetti_12_2022 folder), you will see all jsdocs in HTML format. Select one HTML file. Click right mouse button on it and Open with live Server.</li>
-</ul>
-<hr></article>
+<li>Install <code>Live Server</code> VS Code extension.</li>
+<li>Create a new terminal.</li>
+<li>Change directory to cd MarcosMeneghetti12_12052022.</li>
+<li>Run the JSDoc with <code>yarn docs</code>
+If you open <strong>docs</strong> folder (inside MarcosMeneghetti_12_2022 folder), you will see all jsdocs in HTML format. Select one HTML file. Click right mouse button on it and Open with live Server. A new windows browser will opens, and you will have the documentation about this application.</li>
+</ul></article>
     </section>
 
 
@@ -122,13 +179,13 @@ If you open docs folder (inside MarcosMeneghetti_12_2022 folder), you will see a
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#CustomToolTip">CustomToolTip</a></li><li><a href="global.html#DataRadarFrench">DataRadarFrench</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#getActivities">getActivities</a></li><li><a href="global.html#getActivity">getActivity</a></li><li><a href="global.html#getAverageSessions">getAverageSessions</a></li><li><a href="global.html#getPerformance">getPerformance</a></li><li><a href="global.html#getPerformances">getPerformances</a></li><li><a href="global.html#getSession">getSession</a></li><li><a href="global.html#getUserInfo">getUserInfo</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#KeyData">KeyData</a></li><li><a href="global.html#Page404">Page404</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#renderPolarAngleAxis">renderPolarAngleAxis</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sessions">Sessions</a></li><li><a href="global.html#SideMenu">SideMenu</a></li><li><a href="global.html#Titlegreeting">Title greeting</a></li><li><a href="global.html#WeekLetters">WeekLetters</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="userDataActivityModel.html">userDataActivityModel</a></li><li><a href="userDataAverangeSessiosModel.html">userDataAverangeSessiosModel</a></li><li><a href="userDataModel.html">userDataModel</a></li><li><a href="userDataPerformanceModel.html">userDataPerformanceModel</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#CustomToolTip">CustomToolTip</a></li><li><a href="global.html#DataRadarFrench">DataRadarFrench</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#getActivities">getActivities</a></li><li><a href="global.html#getActivity">getActivity</a></li><li><a href="global.html#getAverageSessions">getAverageSessions</a></li><li><a href="global.html#getPerformance">getPerformance</a></li><li><a href="global.html#getPerformances">getPerformances</a></li><li><a href="global.html#getSession">getSession</a></li><li><a href="global.html#getUserInfo">getUserInfo</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#KeyData">KeyData</a></li><li><a href="global.html#Page404">Page404</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#renderPolarAngleAxis">renderPolarAngleAxis</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sessions">Sessions</a></li><li><a href="global.html#SideMenu">SideMenu</a></li><li><a href="global.html#Titlegreeting">Title greeting</a></li><li><a href="global.html#WeekLetters">WeekLetters</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Mon Jun 06 2022 16:42:28 GMT+0200 (Central European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Thu Jun 09 2022 15:39:24 GMT+0200 (Central European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -27,6 +27,7 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import "./user.scss";
 
@@ -37,40 +38,42 @@ import {
   getAverageSessions,
 } from "../../Services/ApiCall";
 
+import {
+  userDataModel,
+  userDataActivityModel,
+  userDataPerformanceModel,
+  userDataAverangeSessiosModel,
+} from "../../Services/UserDataModel";
+
 import proteines from "../../assets/proteines.svg";
 import glucides from "../../assets/apple.svg";
 import lipides from "../../assets/cheeseburger.svg";
 import calories from "../../assets/calories.svg";
-
 import Activity from "../../components/Activity/Activity";
 import Sessions from "../../components/sessions/Sessions";
 import Performance from "../../components/performance/Performance";
 import Score from "../../components/score/Score";
 import KeyData from "../../components/key-data/KeyData";
 import Title from "../../components/title/Title";
-import Page404 from "../page404/Page404";
 import Error from "../error/Error";
 
 const User = () => {
   //User data for the dashboard
   const [data, setData] = useState({});
   const [dataLoading, setDataLoding] = useState(false);
-  const [dataError, setDataError] = useState(false);
+  const [dataMessage, setDataMessage] = useState("");
 
   //user activities for the dashboard
   const [dataActivity, setDataActivity] = useState({});
   const [dataLoadingActivity, setDataLodingActivity] = useState(false);
-  const [dataErrorActivity, setDataErrorActivity] = useState(false);
 
   //user perfomance for the dashboard
   const [dataPerformance, setDataPerformance] = useState({});
   const [dataLoadingPerformance, setDataLodingPerformance] = useState(false);
-  const [dataErrorPerformance, setDataErrorPerformance] = useState(false);
 
   //user session for the dashboard
   const [dataSession, setDataSession] = useState({});
   const [dataLoadingSession, setDataLodingSession] = useState(false);
-  const [dataErrorSession, setDataErrorSession] = useState(false);
 
   //get id from URL
   const { id } = useParams();
@@ -79,16 +82,18 @@ const User = () => {
     const getData = async () => {
       try {
         const response = await getUserInfo(id);
-        if (!response) {
-          return &lt;div className="user">Identifiant non reconnu&lt;/div>;
-        }
 
-        setData(response.data);
+        response === null
+          ? setDataMessage("Connexion internet non disponible.")
+          : setDataMessage("Identifiant non reconnu");
+
+        const formattedUserData = new userDataModel(response.data);
+
+        setData(formattedUserData);
         setDataLoding(true);
       } catch (error) {
-        setDataError(true);
         if (error.response) {
-          console.log(`Error: ${error.message}`);
+          setDataMessage(error.message);
         }
       }
     };
@@ -102,20 +107,19 @@ const User = () => {
     const getActivity = async () => {
       try {
         const response = await getActivities(id);
-        if (!response) {
-          return &lt;div className="page404">Identifiant non reconnu&lt;/div>;
-        }
-        //change format date yyyy-mm-dd from data to number 1 to 7
-        for (let i = 0; i &lt; response.data.sessions.length; i++) {
-          response.data.sessions[i].day = i + 1;
-        }
+        // if (response === undefined) {
+        //   return &lt;div className="user">{dataMessage}&lt;/div>;
+        // }
 
-        setDataActivity(response.data);
+        const formattedUserDataActivity = new userDataActivityModel(
+          response.data
+        );
+
+        setDataActivity(formattedUserDataActivity);
         setDataLodingActivity(true);
       } catch (error) {
-        setDataErrorActivity(true);
         if (error.response) {
-          console.log(`Error: ${error.message}`);
+          setDataMessage(error.message);
         }
       }
     };
@@ -129,8 +133,12 @@ const User = () => {
       try {
         const response = await getPerformances(id);
 
-        if (!response) {
-          return &lt;div className="page404">Identifiant non reconnu&lt;/div>;
+        const formattedUserDataPerformance = new userDataPerformanceModel(
+          response.data
+        );
+
+        if (response === undefined) {
+          return &lt;div className="user">{dataMessage}&lt;/div>;
         }
 
         /**
@@ -139,31 +147,32 @@ const User = () => {
          *@returns {Array}
          */
 
-        const DataRadarFrench = response.data.data.map((data) => {
-          switch (data.kind) {
-            case 1:
-              return { ...data, kind: "Cardio" };
-            case 2:
-              return { ...data, kind: "Energie" };
-            case 3:
-              return { ...data, kind: "Endurance" };
-            case 4:
-              return { ...data, kind: "Force" };
-            case 5:
-              return { ...data, kind: "Vitesse" };
-            case 6:
-              return { ...data, kind: "Intensité" };
-            default:
-              return { ...data };
+        const DataRadarFrench = formattedUserDataPerformance.data.map(
+          (data) => {
+            switch (data.kind) {
+              case 1:
+                return { ...data, kind: "Cardio" };
+              case 2:
+                return { ...data, kind: "Energie" };
+              case 3:
+                return { ...data, kind: "Endurance" };
+              case 4:
+                return { ...data, kind: "Force" };
+              case 5:
+                return { ...data, kind: "Vitesse" };
+              case 6:
+                return { ...data, kind: "Intensité" };
+              default:
+                return { ...data };
+            }
           }
-        });
+        );
 
         setDataPerformance(DataRadarFrench.reverse());
         setDataLodingPerformance(true);
       } catch (error) {
-        setDataErrorPerformance(true);
         if (error.response) {
-          console.log(`Error: ${error.message}`);
+          setDataMessage(error.message);
         }
       }
     };
@@ -177,9 +186,14 @@ const User = () => {
     const getSession = async () => {
       try {
         const response = await getAverageSessions(id);
-        if (!response) {
-          return &lt;div className="page404">Identifiant non reconnu&lt;/div>;
-        }
+
+        const formattedUserDataAverageSessions =
+          new userDataAverangeSessiosModel(response.data);
+
+        // if (response === undefined) {
+        //   return &lt;div className="user">{dataMessage}&lt;/div>;
+        // }
+
         /**
          * @name WeekLetters
          *@param {number} id
@@ -187,32 +201,33 @@ const User = () => {
          */
 
         //change format day 1 to letters Monday to Sunday
-        const WeekLetters = response.data.sessions.map((data) => {
-          switch (data.day) {
-            case 1:
-              return { ...data, day: "L" };
-            case 2:
-              return { ...data, day: "M" };
-            case 3:
-              return { ...data, day: "M" };
-            case 4:
-              return { ...data, day: "J" };
-            case 5:
-              return { ...data, day: "V" };
-            case 6:
-              return { ...data, day: "S" };
-            case 7:
-              return { ...data, day: "D" };
-            default:
-              return { ...data };
+        const WeekLetters = formattedUserDataAverageSessions.sessions.map(
+          (data) => {
+            switch (data.day) {
+              case 1:
+                return { ...data, day: "L" };
+              case 2:
+                return { ...data, day: "M" };
+              case 3:
+                return { ...data, day: "M" };
+              case 4:
+                return { ...data, day: "J" };
+              case 5:
+                return { ...data, day: "V" };
+              case 6:
+                return { ...data, day: "S" };
+              case 7:
+                return { ...data, day: "D" };
+              default:
+                return { ...data };
+            }
           }
-        });
+        );
         setDataSession(WeekLetters);
         setDataLodingSession(true);
       } catch (error) {
-        setDataErrorSession(true);
         if (error.response) {
-          console.log(`Error: ${error.message}`);
+          setDataMessage(error.message);
         }
       }
     };
@@ -220,7 +235,7 @@ const User = () => {
     getActivity();
     getPerformance();
     getSession();
-  }, [id]);
+  }, [dataMessage, id]);
 
   //user not found message
   if (
@@ -229,24 +244,11 @@ const User = () => {
     !dataLoadingPerformance ||
     !dataLoadingSession
   ) {
-    return &lt;Error />;
-  }
-  //
-  if (
-    dataError ||
-    dataErrorActivity ||
-    dataErrorPerformance ||
-    dataErrorSession
-  ) {
-    return (
-      &lt;>
-        &lt;Page404 />
-      &lt;/>
-    );
+    return &lt;Error error={dataMessage} />;
   }
 
   return (
-    &lt;div className="user">
+    &lt;section className="user">
       &lt;Title name={data.userInfos.firstName} />
       &lt;div className="db-dashboard">
         &lt;div className="db-graphics">
@@ -263,11 +265,7 @@ const User = () => {
               &lt;Performance performances={dataPerformance} />
             &lt;/div>
             &lt;div className="db-chart">
-              &lt;Score
-                score={
-                  data.todayScore ? data.todayScore * 100 : data.score * 100
-                }
-              />
+              &lt;Score score={data.todayScore * 100} />
             &lt;/div>
           &lt;/div>
         &lt;/div>
@@ -298,8 +296,21 @@ const User = () => {
           />
         &lt;/div>
       &lt;/div>
-    &lt;/div>
+    &lt;/section>
   );
+};
+
+//proptypes for User
+User.propTypes = {
+  name: PropTypes.string,
+  activity: PropTypes.array,
+  session: PropTypes.object,
+  performances: PropTypes.object,
+  score: PropTypes.number,
+  imgElement: PropTypes.symbol,
+  backColor: PropTypes.string,
+  typeKey: PropTypes.string,
+  valueKey: PropTypes.number,
 };
 
 export default User;
@@ -313,13 +324,13 @@ export default User;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#CustomToolTip">CustomToolTip</a></li><li><a href="global.html#DataRadarFrench">DataRadarFrench</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#getActivities">getActivities</a></li><li><a href="global.html#getActivity">getActivity</a></li><li><a href="global.html#getAverageSessions">getAverageSessions</a></li><li><a href="global.html#getPerformance">getPerformance</a></li><li><a href="global.html#getPerformances">getPerformances</a></li><li><a href="global.html#getSession">getSession</a></li><li><a href="global.html#getUserInfo">getUserInfo</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#KeyData">KeyData</a></li><li><a href="global.html#Page404">Page404</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#renderPolarAngleAxis">renderPolarAngleAxis</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sessions">Sessions</a></li><li><a href="global.html#SideMenu">SideMenu</a></li><li><a href="global.html#Titlegreeting">Title greeting</a></li><li><a href="global.html#WeekLetters">WeekLetters</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="userDataActivityModel.html">userDataActivityModel</a></li><li><a href="userDataAverangeSessiosModel.html">userDataAverangeSessiosModel</a></li><li><a href="userDataModel.html">userDataModel</a></li><li><a href="userDataPerformanceModel.html">userDataPerformanceModel</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#CustomToolTip">CustomToolTip</a></li><li><a href="global.html#DataRadarFrench">DataRadarFrench</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#getActivities">getActivities</a></li><li><a href="global.html#getActivity">getActivity</a></li><li><a href="global.html#getAverageSessions">getAverageSessions</a></li><li><a href="global.html#getPerformance">getPerformance</a></li><li><a href="global.html#getPerformances">getPerformances</a></li><li><a href="global.html#getSession">getSession</a></li><li><a href="global.html#getUserInfo">getUserInfo</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#KeyData">KeyData</a></li><li><a href="global.html#Page404">Page404</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#renderPolarAngleAxis">renderPolarAngleAxis</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sessions">Sessions</a></li><li><a href="global.html#SideMenu">SideMenu</a></li><li><a href="global.html#Titlegreeting">Title greeting</a></li><li><a href="global.html#WeekLetters">WeekLetters</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Mon Jun 06 2022 16:42:28 GMT+0200 (Central European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Thu Jun 09 2022 15:39:24 GMT+0200 (Central European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>
