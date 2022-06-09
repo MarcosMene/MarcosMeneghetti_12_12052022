@@ -45,7 +45,7 @@ SportSee is a project to create a dashboard page for sport coaching. The user ca
 - `yarn` command will allow you to install the dependencies.
 - `yarn dev` command will allow you to run the micro API.
 - It will run on the port -> http://localhost:3000
-- ## **Don't close the terminal.**
+- **Don't close the terminal.**
 - Open new terminal
 - Clone my project [Marcos Meneghetti - P12](https://github.com/MarcosMene/MarcosMeneghetti_12_12052022.git)
 
