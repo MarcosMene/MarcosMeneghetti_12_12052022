@@ -221,7 +221,7 @@ const User = () => {
   }
 
   return (
-    <div className="user">
+    <section className="user">
       <Title name={data.userInfos.firstName} />
       <div className="db-dashboard">
         <div className="db-graphics">
@@ -269,7 +269,7 @@ const User = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -19,7 +19,7 @@ import PropTypes from "prop-types";
 
 const SideMenu = () => {
   return (
-    <div className="sideMenu">
+    <aside className="sideMenu">
       <div className="sideMenu-header">
         <div className="sideMenu-button">
           <img src={yoga} alt="yoga button" />
@@ -35,7 +35,7 @@ const SideMenu = () => {
         </div>
       </div>
       <div className="sideMenu-copyright">Copyright, SportSee 2022</div>
-    </div>
+    </aside>
   );
 };
 

@@ -17,14 +17,14 @@ function App() {
   return (
     <Router>
       <Header />
-      <div className="main">
+      <main className="main">
         <SideMenu />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/user/:id" element={<User />} />
           <Route path="*" element={<Page404 />} />
         </Routes>
-      </div>
+      </main>
     </Router>
   );
 }
