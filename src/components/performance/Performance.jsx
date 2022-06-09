@@ -33,7 +33,7 @@ const Performance = ({ performances }) => {
           cy="50%"
           outerRadius="100%"
           data={performances}
-          margin={{ top: 25, bottom: 25, left: 30, right: 30 }}
+          margin={{ top: 25, bottom: 25, left: 40, right: 40 }}
         >
           <PolarGrid radialLines={false} />
           <PolarAngleAxis
