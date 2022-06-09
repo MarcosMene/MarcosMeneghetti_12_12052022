@@ -2,7 +2,7 @@
   
 # Projet 12 - SportSee - OpenClassrooms
 
-SportSee is a project to create a page for sport coaching. The user can follow all informations about his/her sessions of coaching as well as the number of calories burned.
+SportSee is a project to create a dashboard page for sport coaching. The user can follow all informations about his/her sessions of coaching as well as the number of calories burned.
 
 ##### Project realized by Marcos Meneghetti
 
@@ -45,15 +45,13 @@ SportSee is a project to create a page for sport coaching. The user can follow a
 - `yarn` command will allow you to install the dependencies.
 - `yarn dev` command will allow you to run the micro API.
 - It will run on the port -> http://localhost:3000
-- **Don't close the terminal.**
-
-###### Open new terminal
-
+- ## **Don't close the terminal.**
+- Open new terminal
 - Clone my project [Marcos Meneghetti - P12](https://github.com/MarcosMene/MarcosMeneghetti_12_12052022.git)
 
 - change the directory -> cd MarcosMeneghetti_12_12052022
 - `yarn` command will allow you to install the dependencies.
-- `yarn run start` command will allow you start the project.
+- `yarn start` command will allow you start the project.
 - **Don't close the terminal.**
 
 It will lunch the React app on the new port -> http://localhost:3005
@@ -68,7 +66,7 @@ These are the only url availables to this project:
 
 **http://localhost:3005/user/18**
 
-If you change to another number diffent of 12 or 18, you will receive a error message like user not found.
+If you change to another number diffent of 12 or 18, you will receive a error message like user not found in french.
 
 ---
 
@@ -105,7 +103,7 @@ everything must work, because your data came from mockdata.
 - Now the application will works with API data.
 
 - If you ctrl-c to stop the backend (terminal bash of p9-front-end-dashboar),
-you will receive a error message like internet was interrupted, because now
+you will receive a error message in french like internet was interrupted, because now
 you don't have access to the API data.
 
 -If you want to get access to API data again, on the terminal (bash of p9-front-end-dashboar),
@@ -116,7 +114,7 @@ restart the API data with 'yarn dev'.
 
 ###### Navigation
 
-The application will start with Karl and Cecilia avatars. Chose one to see his/her dashboard informations.
+The application will start with Karl and Cecilia avatars. Chose one of them to see his/her dashboard informations.
 To come back to home page, on the top menu, click on 'Accueil'.
 
 ---
@@ -127,4 +125,4 @@ To come back to home page, on the top menu, click on 'Accueil'.
 - Create a new terminal.
 - Change directory to cd MarcosMeneghetti12_12052022.
 - Run the JSDoc with `yarn docs`
-  If you open **docs** folder (inside MarcosMeneghetti_12_2022 folder), you will see all jsdocs in HTML format. Select one HTML file. Click right mouse button on it and Open with live Server. A new windows browser will opens, and you will have the informations about this application.
+  If you open **docs** folder (inside MarcosMeneghetti_12_2022 folder), you will see all jsdocs in HTML format. Select one HTML file. Click right mouse button on it and Open with live Server. A new windows browser will opens, and you will have the documentation about this application.
