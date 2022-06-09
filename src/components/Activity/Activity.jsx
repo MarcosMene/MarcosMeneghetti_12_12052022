@@ -66,7 +66,6 @@ const Activity = ({ activity }) => {
             yAxisId="calories"
             dataKey="calories"
             type="number"
-            // domain={[0, "dataMax+100"]}
             hide={true}
           />
           <Tooltip content={<CustomTooltip />} />

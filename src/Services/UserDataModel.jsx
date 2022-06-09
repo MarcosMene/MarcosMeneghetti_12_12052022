@@ -1,3 +1,9 @@
+/**
+ * @description Create a class model to user information to call API
+ * @param {Object} data
+ *@returns {Object}
+ */
+
 export class userDataModel {
   constructor(data) {
     this.id = data.id;
@@ -10,6 +16,13 @@ export class userDataModel {
     this.keyData = data.keyData;
   }
 }
+
+/**
+ * @description Create a class model to user activity to call API
+ * @param {Object} data
+ *@returns {Object}
+ */
+
 export class userDataActivityModel {
   constructor(data) {
     this.userId = data.userId;
@@ -19,6 +32,13 @@ export class userDataActivityModel {
     }
   }
 }
+
+/**
+ * @description Create a class model to user performance to call API
+ * @param {Object} data
+ *@returns {Object}
+ */
+
 export class userDataPerformanceModel {
   constructor(data) {
     this.userId = data.userId;
@@ -26,6 +46,13 @@ export class userDataPerformanceModel {
     this.data = data.data;
   }
 }
+
+/**
+ * @description Create a class model to user average sessions to call API
+ * @param {Object} data
+ *@returns {Object}
+ */
+
 export class userDataAverangeSessiosModel {
   constructor(data) {
     this.userId = data.userId;

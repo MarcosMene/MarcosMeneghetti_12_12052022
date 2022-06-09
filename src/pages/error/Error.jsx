@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import "./error.scss";
 
@@ -15,6 +16,11 @@ const Error = ({ error }) => {
       </div>
     </div>
   );
+};
+
+//proptypes for Error
+Error.propTypes = {
+  error: PropTypes.string,
 };
 
 export default Error;

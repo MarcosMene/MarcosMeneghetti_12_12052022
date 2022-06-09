@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import "./user.scss";
 
@@ -20,7 +21,6 @@ import proteines from "../../assets/proteines.svg";
 import glucides from "../../assets/apple.svg";
 import lipides from "../../assets/cheeseburger.svg";
 import calories from "../../assets/calories.svg";
-
 import Activity from "../../components/Activity/Activity";
 import Sessions from "../../components/sessions/Sessions";
 import Performance from "../../components/performance/Performance";
@@ -33,7 +33,6 @@ const User = () => {
   //User data for the dashboard
   const [data, setData] = useState({});
   const [dataLoading, setDataLoding] = useState(false);
-
   const [dataMessage, setDataMessage] = useState("");
 
   //user activities for the dashboard
@@ -271,6 +270,19 @@ const User = () => {
       </div>
     </section>
   );
+};
+
+//proptypes for User
+User.propTypes = {
+  name: PropTypes.string,
+  activity: PropTypes.array,
+  session: PropTypes.object,
+  performances: PropTypes.object,
+  score: PropTypes.number,
+  imgElement: PropTypes.symbol,
+  backColor: PropTypes.string,
+  typeKey: PropTypes.string,
+  valueKey: PropTypes.number,
 };
 
 export default User;

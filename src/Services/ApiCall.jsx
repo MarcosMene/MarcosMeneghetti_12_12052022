@@ -19,6 +19,7 @@ const api = axios.create({
  * @name getUserInfo
  *@description: This function is used to get the user details from the database. It makes request for a user with a given ID.
  * @param {number} id
+ * @returns {Promise<Object>}
  */
 
 export const getUserInfo = async (id) => {
@@ -47,6 +48,7 @@ export const getUserInfo = async (id) => {
 /**
  *@description: This function is used to get the user activity from the database.It makes request for a user with a given ID.
  * @param {number} id
+ * @returns {Promise<Object>}
  */
 export const getActivities = async (id) => {
   try {
@@ -72,6 +74,7 @@ export const getActivities = async (id) => {
 /**
  *@description: This function is used to get the user session information from the database. It makes request for a user with a given ID.
  * @param {number} id
+ * @returns {Promise<Object>}
  */
 export const getAverageSessions = async (id) => {
   try {
@@ -97,6 +100,7 @@ export const getAverageSessions = async (id) => {
 /**
  *@description: This function is used to get the user performance information from the database.It makes request for a user with a given ID.
  * @param {number} id
+ * @returns {Promise<Object>}
  *
  */
 export const getPerformances = async (id) => {
