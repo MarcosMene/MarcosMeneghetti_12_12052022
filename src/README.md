@@ -4,14 +4,18 @@
 
 SportSee is a project to create a dashboard page for sport coaching. The user can follow all informations about his/her sessions of coaching as well as the number of calories burned.
 
+_This project **is not for mobile**. You need a laptop or desktop computer to display, at least, on 1024px to show the application correctly._
+
 ##### Project realized by Marcos Meneghetti
 
 ---
 
 ## Prerequisites
 
-- NodeJS (version 16.15.0 LTS)
-- Yarn
+- [NodeJS (version 16.15.1 LTS)](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/)
+
+If you are working with several versions of NodeJS, we recommend you install [nvm](https://github.com/nvm-sh/nvm). This tool will allow you to easily manage your NodeJS versions.
 
 ---
 

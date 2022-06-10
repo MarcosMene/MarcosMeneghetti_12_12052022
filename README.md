@@ -12,8 +12,10 @@ _This project **is not for mobile**. You need a laptop or desktop computer to di
 
 ## Prerequisites
 
-- NodeJS (version 16.15.0 LTS)
-- Yarn
+- [NodeJS (version 16.15.1 LTS)](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/)
+
+If you are working with several versions of NodeJS, we recommend you install [nvm](https://github.com/nvm-sh/nvm). This tool will allow you to easily manage your NodeJS versions.
 
 ---
 
