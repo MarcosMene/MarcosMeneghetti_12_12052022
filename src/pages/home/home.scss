@@ -13,15 +13,21 @@
         justify-content: space-evenly;
         margin: 10vh auto;
 
+
         .users-link {
             text-decoration: none;
             width: 250px;
-            // height: 300px;
+            border-radius: 15px;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             color: #FF0101;
+
+            &:hover {
+                -webkit-box-shadow: -1px 3px 13px 5px rgba(0, 0, 0, 0.36);
+                box-shadow: -1px 3px 13px 5px rgba(0, 0, 0, 0.36);
+            }
 
             .home-user {
                 width: 250px;
@@ -37,6 +43,10 @@
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+                }
+
+                p {
+                    margin: 10px 0;
                 }
             }
         }
