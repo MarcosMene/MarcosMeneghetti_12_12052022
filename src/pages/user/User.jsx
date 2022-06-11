@@ -54,7 +54,7 @@ const User = () => {
     const getData = async () => {
       try {
         const response = await getUserInfo(id);
-        console.log(response);
+
         response === null
           ? setDataMessage("Connexion internet non disponible.")
           : setDataMessage("Identifiant non reconnu");
