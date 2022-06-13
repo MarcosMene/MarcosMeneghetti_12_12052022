@@ -25,13 +25,13 @@ const SideMenu = () => {
           <img src={yoga} alt="yoga button" />
         </div>
         <div className="sideMenu-button">
-          <img src={swimming} alt="yoga button" />
+          <img src={swimming} alt="swimming button" />
         </div>
         <div className="sideMenu-button">
-          <img src={bicycle} alt="yoga button" />
+          <img src={bicycle} alt="bicycle button" />
         </div>
         <div className="sideMenu-button">
-          <img src={alter} alt="yoga button" />
+          <img src={alter} alt="alter button" />
         </div>
       </div>
       <div className="sideMenu-copyright">Copyright, SportSee 2022</div>
