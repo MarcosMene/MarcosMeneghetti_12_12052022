@@ -28,21 +28,16 @@ export const getUserInfo = async (id) => {
       const response = {
         data: USER_MAIN_DATA.filter((e) => e.id === +id)[0],
       };
-      // console.log("Mocked");
+
       return response;
     } else {
-      // console.log("API");
       const response = await api.get(`/${id}`);
       return response.data;
     }
   } catch (error) {
     if (error.code === "ERR_NETWORK") {
-      console.log(error);
       return null;
     }
-    console.log(error);
-    // console.log(error.message);
-    // console.log(error.code);
   }
 };
 
@@ -66,10 +61,8 @@ export const getActivities = async (id) => {
     }
   } catch (error) {
     if (error.code === "ERR_NETWORK") {
-      console.log(error);
       return null;
     }
-    console.log(error);
   }
 };
 
@@ -93,10 +86,8 @@ export const getAverageSessions = async (id) => {
     }
   } catch (error) {
     if (error.code === "ERR_NETWORK") {
-      console.log(error);
       return null;
     }
-    console.log(error);
   }
 };
 
@@ -121,9 +112,7 @@ export const getPerformances = async (id) => {
     }
   } catch (error) {
     if (error.code === "ERR_NETWORK") {
-      console.log(error);
       return null;
     }
-    console.log(error);
   }
 };
