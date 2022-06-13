@@ -207,7 +207,7 @@ const User = () => {
     getActivity();
     getPerformance();
     getSession();
-  }, [dataMessage, id]);
+  }, [id]);
 
   //user not found message
   if (
